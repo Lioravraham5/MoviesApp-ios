@@ -10,7 +10,9 @@ struct Constants {
         static let mainToLoginSegue = "MainToLogin"
         static let mainToRegisterSegue = "MainToRegister"
         static let RegisterToMainTabBarSegue = "RegisterToMainTabBar"
-        static let LogInToMainTabBar = "LogInToMainTabBar"
+        static let LogInToMainTabBarSegue = "LogInToMainTabBar"
+        static let HomeToMovieSegue = "HomeToMovie"
+        static let WatchListToMovieSegue = "WatchListToMovie"
         
         
     }

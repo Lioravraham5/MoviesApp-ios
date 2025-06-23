@@ -7,10 +7,18 @@
 
 import Foundation
 
-struct MoviePreview {
+struct HomeMoviePreview {
     let id: Int
     let original_title: String
     let poster_path: String
+}
+
+struct WatchListMoviePreview {
+    let id: Int
+    let original_title: String
+    let poster_path: String
+    let genre_ids: [Int]
+    let runtime: Int // Movie duration in minutes
 }
 
 struct MovieFullDetails {
@@ -18,8 +26,8 @@ struct MovieFullDetails {
     let original_title: String
     let poster_path: String
     let overview: String
-    let popularity: Double
-    let adult: Bool
+    let vote_average: Double
     let release_date: String
     let genre_ids: [Int]
+    let runtime: Int // Movie duration in minutes
 }

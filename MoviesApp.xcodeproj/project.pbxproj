@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FBEB173D2E068E0C006CC979 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = FBEB173C2E068DF8006CC979 /* .gitignore */; };
 		FBEC10332E093AD300F57BCD /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FBEC10322E093AD300F57BCD /* IQKeyboardManagerSwift */; };
+		FBED539C2E09A94100F5214B /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = FBED539B2E09A94100F5214B /* Cosmos */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBED539C2E09A94100F5214B /* Cosmos in Frameworks */,
 				FBEC10332E093AD300F57BCD /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,6 +144,7 @@
 			name = MoviesApp;
 			packageProductDependencies = (
 				FBEC10322E093AD300F57BCD /* IQKeyboardManagerSwift */,
+				FBED539B2E09A94100F5214B /* Cosmos */,
 			);
 			productName = MoviesApp;
 			productReference = FBEB16D12E068B05006CC979 /* MoviesApp.app */;
@@ -227,6 +230,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				FBEC10302E09393200F57BCD /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				FBED539A2E099F6200F5214B /* XCRemoteSwiftPackageReference "Cosmos" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FBEB16D22E068B05006CC979 /* Products */;
@@ -594,6 +598,14 @@
 				minimumVersion = 8.0.1;
 			};
 		};
+		FBED539A2E099F6200F5214B /* XCRemoteSwiftPackageReference "Cosmos" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/evgenyneu/Cosmos.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -601,6 +613,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = FBEC10302E09393200F57BCD /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
+		};
+		FBED539B2E09A94100F5214B /* Cosmos */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FBED539A2E099F6200F5214B /* XCRemoteSwiftPackageReference "Cosmos" */;
+			productName = Cosmos;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4G3-PT-m9S">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hGS-8f-0nT">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
@@ -298,6 +298,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Watch List" image="bookmark.fill" catalog="system" id="heg-as-5wY"/>
+                    <connections>
+                        <segue destination="hGS-8f-0nT" kind="show" identifier="WatchListToMovie" id="498-bw-0KY"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wJA-qd-U9E" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -328,6 +331,7 @@
                     <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="kmV-iN-sjX"/>
                     <connections>
                         <outlet property="categoryTableView" destination="ZqK-Zv-uFb" id="tm8-87-Ivq"/>
+                        <segue destination="hGS-8f-0nT" kind="show" identifier="HomeToMovie" id="1aI-gL-6VJ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MPo-jQ-Ecg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -345,20 +349,149 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movies_background" translatesAutoresizingMaskIntoConstraints="NO" id="aRp-D3-kWE">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="movie_poster" translatesAutoresizingMaskIntoConstraints="NO" id="x0j-YP-awz" userLabel="MoviePoster ImageView ">
+                                <rect key="frame" x="96" y="118" width="200" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="225" id="Ob6-OH-nMe">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="300"/>
+                                    </constraint>
+                                    <constraint firstAttribute="width" constant="150" id="uMe-ON-LLq">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="200"/>
+                                    </constraint>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie Title harry pottr ddfd" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuV-tR-9D8" userLabel="MovieTitle Label">
+                                <rect key="frame" x="32" y="368" width="329" height="28"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="24"/>
+                                <color key="textColor" name="TitlePrimary"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fMk-94-cyw" customClass="CosmosView" customModule="Cosmos">
+                                <rect key="frame" x="32" y="412" width="329" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="sLm-qf-HwU">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="50"/>
+                                    </constraint>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="5.5"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="totalStars">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                        <real key="value" value="5.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="starSize">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="filledColor">
+                                        <color key="value" name="FilledRank"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="emptyColor">
+                                        <color key="value" name="UnFilledRank"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" name="FilledRank"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="textSize">
+                                        <real key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="updateOnTouch" value="NO"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="YA8-I2-5SU" userLabel="Details StackView">
+                                <rect key="frame" x="8" y="478" width="377" height="95"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="FuI-os-7ZG" userLabel="Date StackView">
+                                        <rect key="frame" x="0.0" y="0.0" width="377" height="21"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="oow-Vp-Tu8">
+                                                <rect key="frame" x="0.0" y="1.6666666666666643" width="63" height="18.000000000000004"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2024" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MBl-ih-0bB" userLabel="ReleaseDate Label">
+                                                <rect key="frame" x="63" y="0.0" width="314" height="21"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                <color key="textColor" name="TitlePrimary"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="oow-Vp-Tu8" firstAttribute="width" secondItem="MBl-ih-0bB" secondAttribute="width" multiplier="0.2" id="zcT-gu-nGi"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jTV-S1-KDf" userLabel="Length StackView">
+                                        <rect key="frame" x="0.0" y="37" width="377" height="21"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="bIM-1x-kPV">
+                                                <rect key="frame" x="0.0" y="0.66666666666666607" width="63" height="19.666666666666671"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 h 33 min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLM-Tw-gWi" userLabel="Length Label">
+                                                <rect key="frame" x="63" y="0.0" width="314" height="21"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                <color key="textColor" name="TitlePrimary"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="bIM-1x-kPV" firstAttribute="width" secondItem="LLM-Tw-gWi" secondAttribute="width" multiplier="0.2" id="JTA-UE-5fG"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dva-D1-Hgu" userLabel="Genres StackView">
+                                        <rect key="frame" x="0.0" y="74" width="377" height="21"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="film" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="a9N-sR-bnG">
+                                                <rect key="frame" x="0.0" y="1.6666666666666643" width="63" height="18.000000000000004"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Horror, Action, Drama" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QSY-o2-8ma">
+                                                <rect key="frame" x="63" y="0.0" width="314" height="21"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="a9N-sR-bnG" firstAttribute="width" secondItem="QSY-o2-8ma" secondAttribute="width" multiplier="0.2" id="aLN-aL-Tl0"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="StZ-Rk-NcR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="aRp-D3-kWE" firstAttribute="leading" secondItem="LXG-Va-q5y" secondAttribute="leading" id="0aU-Yk-c3b"/>
+                            <constraint firstItem="x0j-YP-awz" firstAttribute="centerX" secondItem="LXG-Va-q5y" secondAttribute="centerX" id="1fo-yP-kSJ"/>
+                            <constraint firstItem="StZ-Rk-NcR" firstAttribute="trailing" secondItem="fMk-94-cyw" secondAttribute="trailing" constant="32" id="58Y-C9-b0O"/>
                             <constraint firstItem="aRp-D3-kWE" firstAttribute="top" secondItem="LXG-Va-q5y" secondAttribute="top" id="5ST-vG-UyQ"/>
                             <constraint firstAttribute="trailing" secondItem="aRp-D3-kWE" secondAttribute="trailing" id="8nH-fS-4Vi"/>
+                            <constraint firstItem="KuV-tR-9D8" firstAttribute="top" secondItem="x0j-YP-awz" secondAttribute="bottom" constant="24" id="97P-sf-yup"/>
+                            <constraint firstItem="YA8-I2-5SU" firstAttribute="top" secondItem="fMk-94-cyw" secondAttribute="bottom" constant="16" id="AkC-no-RZF"/>
+                            <constraint firstItem="x0j-YP-awz" firstAttribute="top" secondItem="StZ-Rk-NcR" secondAttribute="top" constant="16" id="KNm-EP-9gS">
+                                <variation key="heightClass=compact-widthClass=compact" constant="16"/>
+                            </constraint>
+                            <constraint firstItem="KuV-tR-9D8" firstAttribute="leading" secondItem="StZ-Rk-NcR" secondAttribute="leading" constant="32" id="Ubi-wv-phO">
+                                <variation key="heightClass=compact-widthClass=compact" constant="32"/>
+                            </constraint>
+                            <constraint firstItem="fMk-94-cyw" firstAttribute="top" secondItem="KuV-tR-9D8" secondAttribute="bottom" constant="16" id="YMq-il-eNb">
+                                <variation key="heightClass=compact-widthClass=compact" constant="16"/>
+                            </constraint>
+                            <constraint firstItem="fMk-94-cyw" firstAttribute="leading" secondItem="StZ-Rk-NcR" secondAttribute="leading" constant="32" id="c4c-We-Y3E">
+                                <variation key="heightClass=compact-widthClass=compact" constant="32"/>
+                            </constraint>
+                            <constraint firstItem="StZ-Rk-NcR" firstAttribute="trailing" secondItem="KuV-tR-9D8" secondAttribute="trailing" constant="32" id="m1a-xc-odk"/>
                             <constraint firstAttribute="bottom" secondItem="aRp-D3-kWE" secondAttribute="bottom" id="pne-TO-xNg"/>
+                            <constraint firstItem="YA8-I2-5SU" firstAttribute="leading" secondItem="StZ-Rk-NcR" secondAttribute="leading" constant="8" id="vQX-Wo-a32"/>
+                            <constraint firstItem="YA8-I2-5SU" firstAttribute="centerX" secondItem="LXG-Va-q5y" secondAttribute="centerX" id="xqf-8s-tze"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="4Zj-gr-Ggf"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8F0-zL-vBV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5300" y="-565"/>
+            <point key="canvasLocation" x="5458.7786259541981" y="-165.49295774647888"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="exP-Ye-RpB">
@@ -401,18 +534,29 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="pT7-AR-FKR"/>
+        <segue reference="dYS-eJ-uaO"/>
+        <segue reference="498-bw-0KY"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bookmark.fill" catalog="system" width="110" height="128"/>
+        <image name="calendar" catalog="system" width="128" height="107"/>
+        <image name="clock" catalog="system" width="128" height="123"/>
+        <image name="film" catalog="system" width="128" height="93"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="movie_mood_logo" width="1080" height="1080"/>
+        <image name="movie_poster" width="1000" height="1482"/>
         <image name="movies_background" width="3000" height="2000"/>
+        <namedColor name="FilledRank">
+            <color red="0.98431372549019602" green="0.73725490196078436" blue="0.019607843137254902" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="MovieRed">
             <color red="0.54509803921568623" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="TitlePrimary">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="UnFilledRank">
+            <color red="0.32549019607843138" green="0.32549019607843138" blue="0.32549019607843138" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="red">
             <color red="0.54509803921568623" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
