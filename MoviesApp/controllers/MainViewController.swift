@@ -17,7 +17,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        navigationController?.navigationBar.tintColor = .red // change the back button color of the navigation bar to red
+        navigationController?.navigationBar.tintColor = .movieRed // change the back button color of the navigation bar to red
     
         logInButton.layer.cornerRadius = logInButton.frame.height / 2 // Make the button's corners rounded
         registerButton.layer.cornerRadius = registerButton.frame.height / 2 // Make the button's corners rounded

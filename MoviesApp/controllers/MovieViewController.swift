@@ -1,23 +1,18 @@
 //
-//  HomeViewController.swift
+//  MovieViewController.swift
 //  MoviesApp
 //
-//  Created by Student17 on 22/06/2025.
+//  Created by Student17 on 23/06/2025.
 //
 
 import UIKit
 
-class HomeViewController: UIViewController {
-    
-    @IBOutlet weak var categoryTableView: UITableView!
-    
+class MovieViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
-        categoryTableView.register(UINib(nibName: Constants.CategoryTableCell.cellNibName, bundle: nil),
-                           forCellReuseIdentifier: Constants.CategoryTableCell.cellIdentifier) // register the custome cell to the the UITabelView
-        
-        
     }
     
 

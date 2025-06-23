@@ -22,7 +22,7 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VnU-Qx-hqh">
                                 <rect key="frame" x="86.666666666666686" y="650" width="220" height="40"/>
-                                <color key="backgroundColor" name="red"/>
+                                <color key="backgroundColor" name="MovieRed"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="0B2-Np-UTD">
                                         <variation key="heightClass=compact-widthClass=compact" constant="200"/>
@@ -39,7 +39,7 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie_mood_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Zbs-My-BVk">
-                                <rect key="frame" x="46.666666666666657" y="199" width="300" height="300"/>
+                                <rect key="frame" x="46.666666666666657" y="220" width="300" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="aeN-G9-is5">
                                         <variation key="heightClass=compact-widthClass=compact" constant="300"/>
@@ -59,7 +59,7 @@
                                     <constraint firstAttribute="height" constant="40" id="mBK-ba-0C6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="26"/>
-                                <color key="tintColor" name="red"/>
+                                <color key="tintColor" name="MovieRed"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Register">
                                     <color key="titleColor" name="red"/>
@@ -87,8 +87,8 @@
                             <constraint firstItem="VnU-Qx-hqh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="TBt-XD-c86"/>
                             <constraint firstItem="Wdk-Fx-SFQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="f3L-za-xX0"/>
                             <constraint firstItem="VnU-Qx-hqh" firstAttribute="top" secondItem="Wdk-Fx-SFQ" secondAttribute="bottom" constant="16" id="iZ1-1X-HKZ"/>
-                            <constraint firstItem="Zbs-My-BVk" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="z8W-gL-IR7">
-                                <variation key="heightClass=regular-widthClass=compact" constant="96"/>
+                            <constraint firstItem="Zbs-My-BVk" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="16" id="z8W-gL-IR7">
+                                <variation key="heightClass=regular-widthClass=compact" constant="220"/>
                             </constraint>
                         </constraints>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -142,7 +142,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnt-1F-iz6">
                                 <rect key="frame" x="121.66666666666669" y="491" width="150" height="40"/>
-                                <color key="backgroundColor" name="red"/>
+                                <color key="backgroundColor" name="MovieRed"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="NEr-Lr-meL">
                                         <variation key="heightClass=compact-widthClass=compact" constant="40"/>
@@ -234,9 +234,9 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQH-H5-dlY">
                                 <rect key="frame" x="121.66666666666669" y="491" width="150" height="40"/>
-                                <color key="backgroundColor" name="red"/>
+                                <color key="backgroundColor" name="MovieRed"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="9iV-IJ-uv4"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="9iV-IJ-uv4"/>
                                     <constraint firstAttribute="height" constant="40" id="sUd-n7-vyb"/>
                                 </constraints>
                                 <color key="tintColor" name="TitlePrimary"/>
@@ -310,14 +310,55 @@
                     <view key="view" contentMode="scaleToFill" id="9Kc-4j-v3t">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ZqK-Zv-uFb">
+                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="nvE-vL-qIU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="nvE-vL-qIU" firstAttribute="trailing" secondItem="ZqK-Zv-uFb" secondAttribute="trailing" id="70i-hZ-Pz6"/>
+                            <constraint firstItem="nvE-vL-qIU" firstAttribute="bottom" secondItem="ZqK-Zv-uFb" secondAttribute="bottom" id="8sA-AW-0MI"/>
+                            <constraint firstItem="ZqK-Zv-uFb" firstAttribute="top" secondItem="nvE-vL-qIU" secondAttribute="top" id="J3m-95-3h1"/>
+                            <constraint firstItem="ZqK-Zv-uFb" firstAttribute="leading" secondItem="nvE-vL-qIU" secondAttribute="leading" id="wdP-ES-tBL"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house.fill" catalog="system" id="kmV-iN-sjX"/>
+                    <connections>
+                        <outlet property="categoryTableView" destination="ZqK-Zv-uFb" id="tm8-87-Ivq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MPo-jQ-Ecg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4343" y="-565"/>
+        </scene>
+        <!--Movie View Controller-->
+        <scene sceneID="q4W-BC-LPZ">
+            <objects>
+                <viewController id="hGS-8f-0nT" customClass="MovieViewController" customModule="MoviesApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LXG-Va-q5y">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movies_background" translatesAutoresizingMaskIntoConstraints="NO" id="aRp-D3-kWE">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="StZ-Rk-NcR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="aRp-D3-kWE" firstAttribute="leading" secondItem="LXG-Va-q5y" secondAttribute="leading" id="0aU-Yk-c3b"/>
+                            <constraint firstItem="aRp-D3-kWE" firstAttribute="top" secondItem="LXG-Va-q5y" secondAttribute="top" id="5ST-vG-UyQ"/>
+                            <constraint firstAttribute="trailing" secondItem="aRp-D3-kWE" secondAttribute="trailing" id="8nH-fS-4Vi"/>
+                            <constraint firstAttribute="bottom" secondItem="aRp-D3-kWE" secondAttribute="bottom" id="pne-TO-xNg"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8F0-zL-vBV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5300" y="-565"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="exP-Ye-RpB">
@@ -360,13 +401,16 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="dYS-eJ-uaO"/>
+        <segue reference="pT7-AR-FKR"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bookmark.fill" catalog="system" width="110" height="128"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="movie_mood_logo" width="1080" height="1080"/>
         <image name="movies_background" width="3000" height="2000"/>
+        <namedColor name="MovieRed">
+            <color red="0.54509803921568623" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="TitlePrimary">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
