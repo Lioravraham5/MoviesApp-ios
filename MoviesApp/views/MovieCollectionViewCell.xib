@@ -16,16 +16,16 @@
                 <rect key="frame" x="0.0" y="0.0" width="334" height="234"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movies_background" translatesAutoresizingMaskIntoConstraints="NO" id="cg7-7Q-8dj" userLabel="Movie Poster">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie_poster" translatesAutoresizingMaskIntoConstraints="NO" id="cg7-7Q-8dj" userLabel="Movie Poster">
                         <rect key="frame" x="107" y="16" width="120" height="180"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="120" id="4Bs-vf-gsn"/>
                             <constraint firstAttribute="height" constant="180" id="wgz-tK-wv9"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Movie title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPA-0E-WCe">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Batman Vs Superman" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JPA-0E-WCe">
                         <rect key="frame" x="0.0" y="205" width="334" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -48,6 +48,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="movies_background" width="3000" height="2000"/>
+        <image name="movie_poster" width="1000" height="1482"/>
     </resources>
 </document>

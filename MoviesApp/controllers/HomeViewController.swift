@@ -9,12 +9,12 @@ import UIKit
 
 class HomeViewController: UIViewController {
     
-    @IBOutlet weak var categoryTableView: UITableView!
+    @IBOutlet weak var categoriesTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        categoryTableView.register(UINib(nibName: Constants.CategoryTableCell.cellNibName, bundle: nil),
+        categoriesTableView.register(UINib(nibName: Constants.CategoryTableCell.cellNibName, bundle: nil),
                            forCellReuseIdentifier: Constants.CategoryTableCell.cellIdentifier) // register the custome cell to the the UITabelView
         
         

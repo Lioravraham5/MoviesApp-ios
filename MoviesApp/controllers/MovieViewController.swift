@@ -6,13 +6,26 @@
 //
 
 import UIKit
+import Cosmos
 
 class MovieViewController: UIViewController {
 
+    @IBOutlet weak var moviePoster: UIImageView!
+    @IBOutlet weak var movieTitle: UILabel!
+    @IBOutlet weak var releaseYearLabel: UILabel!
+    @IBOutlet weak var movieRuntimeLabel: UILabel!
+    @IBOutlet weak var genresLabel: UILabel!
+    @IBOutlet weak var overviewContentLabel: UILabel!
+    @IBOutlet weak var addToWatchListButton: UIButton!
+    @IBOutlet weak var cosmosView: CosmosView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        
+        addToWatchListButton.layer.cornerRadius = addToWatchListButton.frame.height / 2 // Make the button's corners rounded
+        
+        cosmosView.settings.fillMode = .precise // Filling the start accurately
     }
     
 

@@ -9,6 +9,8 @@ import UIKit
 
 class WatchListViewController: UIViewController {
 
+    @IBOutlet weak var moviesTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

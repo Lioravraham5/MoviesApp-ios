@@ -19,6 +19,7 @@ struct WatchListMoviePreview {
     let poster_path: String
     let genre_ids: [Int]
     let runtime: Int // Movie duration in minutes
+    let release_date: String
 }
 
 struct MovieFullDetails {
