@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB9AB3E72E0B01D4005225FB /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FB9AB3E62E0B01D4005225FB /* FirebaseAuth */; };
+		FB9AB3E92E0B01D4005225FB /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = FB9AB3E82E0B01D4005225FB /* FirebaseCore */; };
+		FB9AB3EB2E0B01D4005225FB /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = FB9AB3EA2E0B01D4005225FB /* FirebaseDatabase */; };
+		FB9AB3ED2E0B01D4005225FB /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = FB9AB3EC2E0B01D4005225FB /* FirebaseFirestore */; };
 		FBEB173D2E068E0C006CC979 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = FBEB173C2E068DF8006CC979 /* .gitignore */; };
 		FBEC10332E093AD300F57BCD /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FBEC10322E093AD300F57BCD /* IQKeyboardManagerSwift */; };
 		FBED539C2E09A94100F5214B /* Cosmos in Frameworks */ = {isa = PBXBuildFile; productRef = FBED539B2E09A94100F5214B /* Cosmos */; };
@@ -72,8 +76,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB9AB3EB2E0B01D4005225FB /* FirebaseDatabase in Frameworks */,
 				FBED539C2E09A94100F5214B /* Cosmos in Frameworks */,
+				FB9AB3E72E0B01D4005225FB /* FirebaseAuth in Frameworks */,
+				FB9AB3E92E0B01D4005225FB /* FirebaseCore in Frameworks */,
 				FBEC10332E093AD300F57BCD /* IQKeyboardManagerSwift in Frameworks */,
+				FB9AB3ED2E0B01D4005225FB /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -145,6 +153,10 @@
 			packageProductDependencies = (
 				FBEC10322E093AD300F57BCD /* IQKeyboardManagerSwift */,
 				FBED539B2E09A94100F5214B /* Cosmos */,
+				FB9AB3E62E0B01D4005225FB /* FirebaseAuth */,
+				FB9AB3E82E0B01D4005225FB /* FirebaseCore */,
+				FB9AB3EA2E0B01D4005225FB /* FirebaseDatabase */,
+				FB9AB3EC2E0B01D4005225FB /* FirebaseFirestore */,
 			);
 			productName = MoviesApp;
 			productReference = FBEB16D12E068B05006CC979 /* MoviesApp.app */;
@@ -231,6 +243,7 @@
 			packageReferences = (
 				FBEC10302E09393200F57BCD /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				FBED539A2E099F6200F5214B /* XCRemoteSwiftPackageReference "Cosmos" */,
+				FB9AB3E52E0B01D4005225FB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FBEB16D22E068B05006CC979 /* Products */;
@@ -590,6 +603,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		FB9AB3E52E0B01D4005225FB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.15.0;
+			};
+		};
 		FBEC10302E09393200F57BCD /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
@@ -609,6 +630,26 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		FB9AB3E62E0B01D4005225FB /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB9AB3E52E0B01D4005225FB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		FB9AB3E82E0B01D4005225FB /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB9AB3E52E0B01D4005225FB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		FB9AB3EA2E0B01D4005225FB /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB9AB3E52E0B01D4005225FB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		FB9AB3EC2E0B01D4005225FB /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FB9AB3E52E0B01D4005225FB /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
 		FBEC10322E093AD300F57BCD /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = FBEC10302E09393200F57BCD /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;

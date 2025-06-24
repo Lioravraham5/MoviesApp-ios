@@ -7,6 +7,8 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import FirebaseCore
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -16,7 +18,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         IQKeyboardManager.shared.isEnabled = true // fix the open of the keyboard to not hide ui elements
+        
         IQKeyboardManager.shared.resignOnTouchOutside = true // when press outside the keyboard it will dismiss
+        
+        FirebaseApp.configure() // Initialize Firebase services using the configuration from GoogleService-Info.plist
         
         return true
     }
