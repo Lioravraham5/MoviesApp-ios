@@ -22,6 +22,11 @@ struct Constants {
         static let cellNibName = "CategoryTableViewCell"
     }
     
+    struct MovieTableCell {
+        static let cellIdentifier = "MovieTableViewCell"
+        static let cellNibName = "MovieTableViewCell"
+    }
+    
     struct MovieCollectionCell{
         static let cellIdentifier = "MovieCollectionViewCell"
         static let cellNibName = "MovieCollectionViewCell"

@@ -17,7 +17,7 @@ class CategoryTableViewCell: UITableViewCell {
         // Initialization code
         
         moviesCollectionView.register(UINib(nibName: Constants.MovieCollectionCell.cellNibName, bundle: nil),
-                                      forCellWithReuseIdentifier: Constants.MovieCollectionCell.cellIdentifier) // register the custome cell to the the UICollectionView
+                                      forCellWithReuseIdentifier: Constants.MovieCollectionCell.cellIdentifier) // register the custome collection cell to the the UICollectionView
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

@@ -13,8 +13,11 @@ class WatchListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        
+        moviesTableView.register(
+            UINib(nibName: Constants.MovieTableCell.cellNibName, bundle: nil),
+            forCellReuseIdentifier: Constants.MovieTableCell.cellIdentifier) // register the custome cell to the the UITabelView
     }
     
 
