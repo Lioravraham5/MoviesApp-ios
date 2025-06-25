@@ -36,6 +36,7 @@ class FirebaseAuthManager {
             if let error =  errorOpt {
                 self.registerDelegate?.didFailToRegister(error: error)
             } else {
+                print("FirebaseAuthManager: The user \(email) is registered successfully")
                 self.registerDelegate?.didRegisterSuccessfully()
             }
         }
@@ -46,6 +47,7 @@ class FirebaseAuthManager {
             if let error =  errorOpt {
                 self.logInDelegate?.didFailToLogIn(error: error)
             } else {
+                print("FirebaseAuthManager: The user \(email) is Logged In successfully")
                 self.logInDelegate?.didLogInSuccessfully()
             }
         }
@@ -54,6 +56,7 @@ class FirebaseAuthManager {
     func logOutUser() {
         do {
             try Auth.auth().signOut()
+            print("FirebaseAuthManager: The Current user is Logged Out successfully")
             self.logOutDelegate?.didLogOutSuccessfully()
         } catch {
             self.logOutDelegate?.didFailToLogOut(error: error) // The error parameter throws from: try Auth.auth().signOut()

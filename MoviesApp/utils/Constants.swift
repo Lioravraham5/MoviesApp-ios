@@ -31,6 +31,8 @@ struct Constants {
     }
     
     struct Alerts {
+        
+        // RegisterViewController
         static let invalidEmailAlertTitle = "Invalid Email"
         static let invalidEmailAlertMessage = "Email must be in a valid format (e.g., user@example.com)."
         
@@ -48,6 +50,18 @@ struct Constants {
         
         static let generalRegistrationAlertTitle = "Registration Failed"
         static let generalRegistrationAlertMessage = "Something went wrong during the registration process. Please try again later"
+        
+        
+        // LoginViewController
+        static let logInInvalidEmailAlertTitle = "Account Not Found"
+        static let logInInvalidEmailAlertMessage = "The email address you entered doesn't match any account. Please check for typos or register for a new account."
+            
+        static let logInInvalidPasswordAlertTitle = "Incorrect Password"
+        static let logInInvalidPasswordAlertMessage = "The password you entered is incorrect. Please try again."
+            
+        static let generalLoginAlertTitle = "Login Failed"
+        static let generalLoginAlertMessage = "An unexpected error occurred during login. Please try again later or check your internet connection."
+        
     }
     
  

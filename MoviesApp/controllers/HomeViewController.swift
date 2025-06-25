@@ -11,9 +11,13 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var categoriesTableView: UITableView!
     
+    let firebaseAuthManager = FirebaseAuthManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        firebaseAuthManager.logOutDelegate = self
         
         categoriesTableView.register(UINib(nibName: Constants.CategoryTableCell.cellNibName, bundle: nil),
                            forCellReuseIdentifier: Constants.CategoryTableCell.cellIdentifier) // register the custome cell to the the UITabelView
@@ -21,7 +25,6 @@ class HomeViewController: UIViewController {
         
     }
     
-
     /*
     // MARK: - Navigation
 
@@ -32,4 +35,16 @@ class HomeViewController: UIViewController {
     }
     */
 
+}
+
+extension HomeViewController: FirebaseAuthLogOutDelegate {
+    func didLogOutSuccessfully() {
+        navigationController?.popToRootViewController(animated: true) // pop the screens from the navigation stack untill the root of it - MainViewController
+    }
+    
+    func didFailToLogOut(error: any Error) {
+        print("HomeViewController: \(error)")
+    }
+    
+    
 }

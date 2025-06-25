@@ -6,21 +6,28 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LogInViewController: UIViewController {
-
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var logInButton: UIButton!
     
+    let firebaseAuthManager = FirebaseAuthManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        setupPasswordToggle() // create shoe password button in passwordTextField
-
+        firebaseAuthManager.logInDelegate = self
         
+        setupPasswordToggle() // create show password button in passwordTextField
+        configureUI()
+        
+    }
+    
+    func configureUI() {
         logInButton.layer.cornerRadius = logInButton.frame.height / 2 // Make the button's corners rounded
         
         // Rounded emailTextField
@@ -30,7 +37,6 @@ class LogInViewController: UIViewController {
         // Rounded passwordTextField
         passwordTextField.layer.cornerRadius = passwordTextField.frame.height / 2
         passwordTextField.clipsToBounds = true
-        
     }
     
 
@@ -50,5 +56,45 @@ class LogInViewController: UIViewController {
         sender.isSelected.toggle() // change the selected state of the button
         passwordTextField.isSecureTextEntry.toggle() // Toggle the text visibility (secure vs plain text)
     }
+    
+    
+    @IBAction func LogInButtonPressed(_ sender: UIButton) {
+        guard let email = emailTextField.text,
+              let password = passwordTextField.text else {
+            return
+        }
+        
+        firebaseAuthManager.logInUser(email: email, password: password)
+    }
+}
 
+// MARK: - FirebaseAuthLogInDelegate
+extension LogInViewController: FirebaseAuthLogInDelegate {
+    func didLogInSuccessfully() {
+        self.performSegue(withIdentifier: Constants.Segues.LogInToMainTabBarSegue, sender: self)
+    }
+    
+    func didFailToLogIn(error: any Error) {
+        print("LogInViewController: \(error.localizedDescription)")
+        
+        if let errCode = AuthErrorCode(rawValue: (error as NSError).code) {
+            switch errCode {
+            case .invalidEmail, .userNotFound, .missingEmail:
+                AlertPresenterManager.ShowAlertWithConfirmButton(on: self,
+                                                                 alertTitle: Constants.Alerts.logInInvalidEmailAlertTitle,
+                                                                 alertMessage: Constants.Alerts.logInInvalidEmailAlertMessage)
+                
+            case .wrongPassword:
+                AlertPresenterManager.ShowAlertWithConfirmButton(on: self,
+                                                                 alertTitle: Constants.Alerts.logInInvalidPasswordAlertTitle,
+                                                                 alertMessage: Constants.Alerts.logInInvalidPasswordAlertMessage)
+            default:
+                AlertPresenterManager.ShowAlertWithConfirmButton(on: self,
+                                                                 alertTitle: Constants.Alerts.generalLoginAlertTitle,
+                                                                 alertMessage: Constants.Alerts.generalLoginAlertMessage)
+            }
+        }
+    }
+    
+    
 }

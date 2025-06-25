@@ -21,7 +21,7 @@ class RegisterViewController: UIViewController {
         
         firebaseAuthManager.registerDelegate = self
         
-        setupPasswordToggle() // create shoe password button in passwordTextField
+        setupPasswordToggle() // create show password button in passwordTextField
         configureUI()
         
     }
