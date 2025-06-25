@@ -13,8 +13,6 @@ struct Constants {
         static let LogInToMainTabBarSegue = "LogInToMainTabBar"
         static let HomeToMovieSegue = "HomeToMovie"
         static let WatchListToMovieSegue = "WatchListToMovie"
-        
-        
     }
     
     struct CategoryTableCell{
@@ -30,6 +28,26 @@ struct Constants {
     struct MovieCollectionCell{
         static let cellIdentifier = "MovieCollectionViewCell"
         static let cellNibName = "MovieCollectionViewCell"
+    }
+    
+    struct Alerts {
+        static let invalidEmailAlertTitle = "Invalid Email"
+        static let invalidEmailAlertMessage = "Email must be in a valid format (e.g., user@example.com)."
+        
+        static let invalidPasswordAlertTitle = "Invalid Password"
+        static let invalidPasswordAlertMessage = """
+        Please make sure your password meet the following requirements:
+        
+        • At least one lowercase letter (a–z)
+        • At least one number (0–9)
+        • Minimum of 6 characters
+        """
+        
+        static let emailAlreadyInUseAlertTitle = "Email Already Registered"
+        static let emailAlreadyInUseAlertMessage = "The email address you entered is already associated with an existing account. Please try to use a different email address."
+        
+        static let generalRegistrationAlertTitle = "Registration Failed"
+        static let generalRegistrationAlertMessage = "Something went wrong during the registration process. Please try again later"
     }
     
  

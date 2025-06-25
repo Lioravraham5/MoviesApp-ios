@@ -68,4 +68,26 @@ class FirebaseAuthManager {
         return Auth.auth().currentUser
     }
     
+    /*My password validation:
+     - At least one lowercase letter (a–z)
+     - At least one number (0–9)
+     - Minimum of 6 characters
+    */
+    func isValidPassword(_ password: String) -> Bool {
+        // Check minimum length
+        guard password.count >= 6 else {
+            return false
+        }
+        
+        // Check for at least one letter a-z (lowercase or uppercase)
+        let letterRegex = ".*[a-zA-Z]+.*"
+        let letterPredicate = NSPredicate(format: "SELF MATCHES %@", letterRegex)
+        
+        // Check for at least one digit 0-9
+        let digitRegex = ".*[0-9]+.*"
+        let digitPredicate = NSPredicate(format: "SELF MATCHES %@", digitRegex)
+        
+        return letterPredicate.evaluate(with: password) && digitPredicate.evaluate(with: password)
+    }
+    
 }
