@@ -60,7 +60,7 @@ struct Constants {
         static let logInInvalidPasswordAlertMessage = "The password you entered is incorrect. Please try again."
             
         static let generalLoginAlertTitle = "Login Failed"
-        static let generalLoginAlertMessage = "An unexpected error occurred during login. Please try again later or check your internet connection."
+        static let generalLoginAlertMessage = "We couldn't log you in. Please check your email and password, and ensure you have an internet connection."
         
     }
     

@@ -28,6 +28,7 @@ class LogInViewController: UIViewController {
     }
     
     func configureUI() {
+        
         logInButton.layer.cornerRadius = logInButton.frame.height / 2 // Make the button's corners rounded
         
         // Rounded emailTextField
@@ -63,8 +64,8 @@ class LogInViewController: UIViewController {
               let password = passwordTextField.text else {
             return
         }
-        
-        firebaseAuthManager.logInUser(email: email, password: password)
+        print("LogInViewController: Email entered - \(email), Password entered - \(password)")
+        firebaseAuthManager.logInUser(email: email.trimmingCharacters(in: .whitespacesAndNewlines), password: password.trimmingCharacters(in: .whitespacesAndNewlines))
     }
 }
 
