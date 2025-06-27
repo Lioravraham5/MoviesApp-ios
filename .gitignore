@@ -1,2 +1,5 @@
 # Firebase config
 GoogleService-Info.plist
+
+# My Secrets
+Secrets.xcconfig
