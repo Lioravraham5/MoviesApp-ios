@@ -8,12 +8,12 @@
 import Foundation
 
 protocol MovieListFetchDelegate: AnyObject {
-    func didReceiveMovies(_ movieAPIManager: MovieAPIManager, movies: [MovieFullDetails])
+    func didReceiveMovies(_ movieAPIManager: MovieAPIManager, movies: [MovieListDTO])
     func didFailWithError(error: Error)
 }
 
 protocol MovieFetchDelegate: AnyObject {
-    func didReceiveMovie(_ movieAPIManager: MovieAPIManager, movie: MovieFullDetails)
+    func didReceiveMovie(_ movieAPIManager: MovieAPIManager, movie: MovieDetailsDTO)
     func didFailWithError(error: Error)
 }
 
@@ -55,11 +55,82 @@ class MovieAPIManager {
     
     // MARK: - Private methods:
     private func performMovieListRequest(with urlString: String) {
+        // 1. Create a URL
+        if let url = URL(string: urlString){
+            
+            // 2. Create a URLSession
+            let session = URLSession(configuration: .default) // the urlSesssion will used us like the browser in chrom
+            
+            // 3. Give the session a task
+            let task = session.dataTask(with: url) { (data, response, error) in
+                if error != nil {
+                    self.movieListFetchDelegate?.didFailWithError(error: error!)
+                    return
+                }
+                
+                if let safeData = data {
+                    if let movies = self.parseJSONToMovieList(safeData) {
+                        self.movieListFetchDelegate?.didReceiveMovies(self, movies: movies)
+                    }
+                }
+            }
+            
+            // 4. Start the task
+            task.resume()
+        }
+        
+    }
+    
+    private func parseJSONToMovieList(_ moviesListData: Data) -> [MovieListDTO]? {
+        let decoder = JSONDecoder()
+        do{
+            let decodeData = try decoder.decode(MovieListResponse.self, from: moviesListData)
+            return decodeData.results
+        }
+        catch{
+            movieListFetchDelegate?.didFailWithError(error: error)
+            return nil
+        }
         
     }
     
     private func performSpecficMovieRequest(with urlString: String) {
+        // 1. Create a URL
+        if let url = URL(string: urlString){
+            
+            // 2. Create a URLSession
+            let session = URLSession(configuration: .default) // the urlSesssion will used us like the browser in chrom
+            
+            // 3. Give the session a task
+            let task = session.dataTask(with: url) { (data, response, error) in
+                if error != nil {
+                    self.movieFetchDelegate?.didFailWithError(error: error!)
+                    return
+                }
+                
+                if let safeData = data {
+                    if let movie = self.parseJSONToMovie(safeData) {
+                        self.movieFetchDelegate?.didReceiveMovie(self, movie: movie)
+                    }
+                }
+            }
+            
+            // 4. Start the task
+            task.resume()
+        }
         
     }
     
+    private func parseJSONToMovie(_ movieData: Data) -> MovieDetailsDTO? {
+        let decoder = JSONDecoder()
+        do{
+            let decodeData = try decoder.decode(MovieDetailsDTO.self, from: movieData)
+            return decodeData
+        }
+        catch{
+            movieFetchDelegate?.didFailWithError(error: error)
+            return nil
+        }
+        
+    }
 }

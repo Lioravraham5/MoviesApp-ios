@@ -7,20 +7,30 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, MovieListFetchDelegate {
     
     @IBOutlet weak var categoriesTableView: UITableView!
     
     let firebaseAuthManager = FirebaseAuthManager()
+    let movieAPIManager = MovieAPIManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         firebaseAuthManager.logOutDelegate = self
+        movieAPIManager.movieListFetchDelegate = self
         
         categoriesTableView.register(UINib(nibName: Constants.CategoryTableCell.cellNibName, bundle: nil),
                                      forCellReuseIdentifier: Constants.CategoryTableCell.cellIdentifier) // register the custome cell to the the UITabelView
+        
+        // ✅ Choose any of these:
+        // movieAPIManager.fetchPopularMovies()
+        //movieAPIManager.fetchTopRatedMovies()
+        //movieAPIManager.fetchMoviesByGenre(genreID: 28)
+        //movieAPIManager.fetchUpcomingMovies()
+        
+        movieAPIManager.fetchMovieByID(movieID: 1100988)
         
         
     }
@@ -30,18 +40,20 @@ class HomeViewController: UIViewController {
         firebaseAuthManager.logOutUser()
     }
     
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
+    func didReceiveMovies(_ movieAPIManager: MovieAPIManager, movies: [MovieListDTO]) {
+        print("✅ Received \(movies.count) movies:")
+        for movie in movies {
+            //print("\n\(movie)")
+            print("- \(movie.original_title)")
+        }
+    }
+    
+    func didFailWithError(error: any Error) {
+        print("❌ Error fetching movies:", error.localizedDescription)
+    }
     
 }
-
+// MARK: - FirebaseAuthLogOutDelegate
 extension HomeViewController: FirebaseAuthLogOutDelegate {
     func didLogOutSuccessfully() {
         
