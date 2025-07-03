@@ -8,8 +8,8 @@
 import Foundation
 
 protocol MovieListFetchDelegate: AnyObject {
-    func didReceiveMovies(_ movieAPIManager: MovieAPIManager, movies: [MovieListDTO])
-    func didFailWithError(error: Error)
+    func didReceiveMovies(_ movieAPIManager: MovieAPIManager, movies: [MovieListDTO], category: MovieCategory)
+    func didFailWithError(error: Error, category: MovieCategory)
 }
 
 protocol MovieFetchDelegate: AnyObject {
@@ -30,23 +30,23 @@ class MovieAPIManager {
     // MARK: - Public methods:
     func fetchPopularMovies() {
         let url = "\(baseURL)/movie/popular?api_key=\(apiKey)"
-        performMovieListRequest(with: url)
+        performMovieListRequest(with: url, category: .popular)
     }
     
     func fetchTopRatedMovies() {
         let url = "\(baseURL)/movie/top_rated?api_key=\(apiKey)"
-        performMovieListRequest(with: url)
+        performMovieListRequest(with: url, category: .topRated)
     }
     
     func fetchUpcomingMovies() {
         let url = "\(baseURL)/movie/upcoming?api_key=\(apiKey)"
-        performMovieListRequest(with: url)
+        performMovieListRequest(with: url, category: .upcoming)
     }
     
-    func fetchMoviesByGenre(genreID: Int){
-        let url = "\(baseURL)/discover/movie?api_key=\(apiKey)&sort_by=popularity.desc&with_genres=\(genreID)"
-        performMovieListRequest(with: url)
-    }
+//    func fetchMoviesByGenre(genreID: Int){
+//        let url = "\(baseURL)/discover/movie?api_key=\(apiKey)&sort_by=popularity.desc&with_genres=\(genreID)"
+//        performMovieListRequest(with: url)
+//    }
     
     func fetchMovieByID(movieID: Int){
         let url = "\(baseURL)/movie/\(movieID)?api_key=\(apiKey)"
@@ -54,7 +54,7 @@ class MovieAPIManager {
     }
     
     // MARK: - Private methods:
-    private func performMovieListRequest(with urlString: String) {
+    private func performMovieListRequest(with urlString: String, category: MovieCategory) {
         // 1. Create a URL
         if let url = URL(string: urlString){
             
@@ -64,13 +64,13 @@ class MovieAPIManager {
             // 3. Give the session a task
             let task = session.dataTask(with: url) { (data, response, error) in
                 if error != nil {
-                    self.movieListFetchDelegate?.didFailWithError(error: error!)
+                    self.movieListFetchDelegate?.didFailWithError(error: error!, category: category)
                     return
                 }
                 
                 if let safeData = data {
-                    if let movies = self.parseJSONToMovieList(safeData) {
-                        self.movieListFetchDelegate?.didReceiveMovies(self, movies: movies)
+                    if let movies = self.parseJSONToMovieList(safeData, category) {
+                        self.movieListFetchDelegate?.didReceiveMovies(self, movies: movies, category: category)
                     }
                 }
             }
@@ -81,14 +81,14 @@ class MovieAPIManager {
         
     }
     
-    private func parseJSONToMovieList(_ moviesListData: Data) -> [MovieListDTO]? {
+    private func parseJSONToMovieList(_ moviesListData: Data, _ category: MovieCategory) -> [MovieListDTO]? {
         let decoder = JSONDecoder()
         do{
             let decodeData = try decoder.decode(MovieListResponse.self, from: moviesListData)
             return decodeData.results
         }
         catch{
-            movieListFetchDelegate?.didFailWithError(error: error)
+            movieListFetchDelegate?.didFailWithError(error: error, category: category)
             return nil
         }
         

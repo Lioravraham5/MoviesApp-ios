@@ -6,6 +6,12 @@
 //
 
 struct Constants {
+    
+    struct TMDBURLs {
+        static let TMDBImageBaseURL185 = "https://image.tmdb.org/t/p/w185"
+        static let TMDBImageBaseURL500 = "https://image.tmdb.org/t/p/w500"
+    }
+    
     struct Segues {
         static let mainToLoginSegue = "MainToLogin"
         static let mainToRegisterSegue = "MainToRegister"

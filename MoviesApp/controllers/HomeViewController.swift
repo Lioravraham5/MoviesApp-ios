@@ -7,12 +7,16 @@
 
 import UIKit
 
-class HomeViewController: UIViewController, MovieListFetchDelegate {
+class HomeViewController: UIViewController {
     
     @IBOutlet weak var categoriesTableView: UITableView!
     
     let firebaseAuthManager = FirebaseAuthManager()
     let movieAPIManager = MovieAPIManager()
+    
+    private var poplarMovies: [MovieListDTO] = []
+    private var topRatedMovies: [MovieListDTO] = []
+    private var upcomingMovies: [MovieListDTO] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,37 +25,22 @@ class HomeViewController: UIViewController, MovieListFetchDelegate {
         firebaseAuthManager.logOutDelegate = self
         movieAPIManager.movieListFetchDelegate = self
         
+        categoriesTableView.dataSource = self
+        categoriesTableView.delegate = self
+        
         categoriesTableView.register(UINib(nibName: Constants.CategoryTableCell.cellNibName, bundle: nil),
                                      forCellReuseIdentifier: Constants.CategoryTableCell.cellIdentifier) // register the custome cell to the the UITabelView
         
-        // ✅ Choose any of these:
-        // movieAPIManager.fetchPopularMovies()
-        //movieAPIManager.fetchTopRatedMovies()
+        movieAPIManager.fetchPopularMovies()
+        movieAPIManager.fetchTopRatedMovies()
+        movieAPIManager.fetchUpcomingMovies()
+        
         //movieAPIManager.fetchMoviesByGenre(genreID: 28)
-        //movieAPIManager.fetchUpcomingMovies()
-        
-        movieAPIManager.fetchMovieByID(movieID: 1100988)
-        
-        
     }
-    
     
     @IBAction func logOutButtonPressed(_ sender: UIBarButtonItem) {
         firebaseAuthManager.logOutUser()
     }
-    
-    func didReceiveMovies(_ movieAPIManager: MovieAPIManager, movies: [MovieListDTO]) {
-        print("✅ Received \(movies.count) movies:")
-        for movie in movies {
-            //print("\n\(movie)")
-            print("- \(movie.original_title)")
-        }
-    }
-    
-    func didFailWithError(error: any Error) {
-        print("❌ Error fetching movies:", error.localizedDescription)
-    }
-    
 }
 // MARK: - FirebaseAuthLogOutDelegate
 extension HomeViewController: FirebaseAuthLogOutDelegate {
@@ -76,4 +65,71 @@ extension HomeViewController: FirebaseAuthLogOutDelegate {
     }
     
     
+}
+
+// MARK: - MovieListFetchDelegate
+extension HomeViewController: MovieListFetchDelegate {
+    func didReceiveMovies(_ movieAPIManager: MovieAPIManager, movies: [MovieListDTO], category: MovieCategory) {
+        DispatchQueue.main.async {
+            switch category {
+            case .popular:
+                self.poplarMovies = movies
+            case .topRated:
+                self.topRatedMovies = movies
+            case .upcoming:
+                self.upcomingMovies = movies
+            }
+        }
+        DispatchQueue.main.async {
+            self.categoriesTableView.reloadData() // updating categoriesTableView
+        }
+        
+    }
+    
+    func didFailWithError(error: any Error, category: MovieCategory) {
+        print("HomeViewController: Error loading \(category) movies: \(error.localizedDescription)")
+    }
+}
+
+// MARK: - UITableViewDataSource
+extension HomeViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return MovieCategory.allCases.count
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1 // one row per category
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: Constants.CategoryTableCell.cellIdentifier, for: indexPath) as? CategoryTableViewCell else {
+            return UITableViewCell() // If it doesn't succeed to casting the cell to CategoryTableViewCell, it return an empty UITableViewCell
+        }
+        
+        let category = MovieCategory(rawValue: indexPath.section)
+        
+        switch category {
+        case .popular:
+            cell.configure(with: poplarMovies)
+        case .topRated:
+            cell.configure(with: topRatedMovies)
+        case .upcoming:
+            cell.configure(with: upcomingMovies)
+        case .none:
+            break
+        }
+        
+        return cell
+    }
+}
+
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 220
+    }
+    
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return MovieCategory(rawValue: section)?.title
+    }
 }
