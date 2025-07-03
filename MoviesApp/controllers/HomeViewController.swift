@@ -124,12 +124,69 @@ extension HomeViewController: UITableViewDataSource {
     }
 }
 
+
+// MARK: - UITableViewDelegate
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 220
+        return 300
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return MovieCategory(rawValue: section)?.title
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = .systemBackground
+        
+        // Get the movie category
+        guard let category = MovieCategory(rawValue: section) else { return nil }
+        
+        // Icon for the category
+        let iconImageView = UIImageView()
+        iconImageView.contentMode = .scaleAspectFit
+        iconImageView.translatesAutoresizingMaskIntoConstraints = false
+        iconImageView.tintColor = .label // supports dark mode
+        
+        // Choose icon based on category
+        switch category {
+        case .popular:
+            iconImageView.image = UIImage(systemName: "flame.fill")
+        case .topRated:
+            iconImageView.image = UIImage(systemName: "star.fill")
+        case .upcoming:
+            iconImageView.image = UIImage(systemName: "calendar.badge.plus")
+        }
+        
+        // Title label
+        let titleLabel = UILabel()
+        titleLabel.text = category.title
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 22)
+        titleLabel.textColor = .label
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        // Add subviews
+        headerView.addSubview(iconImageView)
+        headerView.addSubview(titleLabel)
+        
+        // Layout constraints
+        NSLayoutConstraint.activate([
+            iconImageView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 16),
+            iconImageView.centerYAnchor.constraint(equalTo: headerView.centerYAnchor),
+            iconImageView.widthAnchor.constraint(equalToConstant: 24),
+            iconImageView.heightAnchor.constraint(equalToConstant: 24),
+            
+            titleLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 8),
+            titleLabel.centerYAnchor.constraint(equalTo: iconImageView.centerYAnchor),
+            titleLabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -16),
+            titleLabel.topAnchor.constraint(greaterThanOrEqualTo: headerView.topAnchor, constant: 8),
+            titleLabel.bottomAnchor.constraint(lessThanOrEqualTo: headerView.bottomAnchor, constant: -8)
+        ])
+        
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
     }
 }

@@ -9,7 +9,6 @@ import UIKit
 
 class CategoryTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var categoryLabel: UILabel!
     @IBOutlet weak var moviesCollectionView: UICollectionView!
     
     private var movies: [MovieListDTO] = []
@@ -57,9 +56,9 @@ extension CategoryTableViewCell: UICollectionViewDataSource {
     }
 }
 
-    // MARK: - UICollectionViewDelegateFlowLayout
+// MARK: - UICollectionViewDelegateFlowLayout
 extension CategoryTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 120, height: 180)
+        return CGSize(width: 200, height: 270)
     }
 }

@@ -10,21 +10,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryTableViewCell" rowHeight="304" id="KGk-i7-Jjw" customClass="CategoryTableViewCell" customModule="MoviesApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="304"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="CategoryTableViewCell" rowHeight="300" id="KGk-i7-Jjw" customClass="CategoryTableViewCell" customModule="MoviesApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="325" height="300"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="59" y="0.0" width="202" height="304"/>
+                <rect key="frame" x="59" y="0.0" width="207" height="300"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Top Rated " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WvV-vT-6k8">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="26.333333333333332"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Kco-BY-kt1" userLabel="MoviesCollectionView">
-                        <rect key="frame" x="0.0" y="34.333333333333343" width="320" height="269.66666666666663"/>
+                        <rect key="frame" x="0.0" y="8" width="325" height="284"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CiA-fH-0kX">
                             <size key="itemSize" width="128" height="128"/>
@@ -37,19 +31,15 @@
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="Kco-BY-kt1" secondAttribute="trailing" id="9CX-yM-gr8"/>
                     <constraint firstItem="Kco-BY-kt1" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="J2p-Qa-Mar"/>
-                    <constraint firstAttribute="trailing" secondItem="WvV-vT-6k8" secondAttribute="trailing" id="Ogz-XY-7qO"/>
-                    <constraint firstItem="WvV-vT-6k8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="U2G-kf-U59"/>
-                    <constraint firstItem="WvV-vT-6k8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="e2L-fW-zLQ"/>
-                    <constraint firstItem="Kco-BY-kt1" firstAttribute="top" secondItem="WvV-vT-6k8" secondAttribute="bottom" constant="8" id="gay-Yl-Bka"/>
-                    <constraint firstAttribute="bottom" secondItem="Kco-BY-kt1" secondAttribute="bottom" id="zjI-oH-i9F"/>
+                    <constraint firstItem="Kco-BY-kt1" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="Pjh-RY-9EC"/>
+                    <constraint firstAttribute="bottom" secondItem="Kco-BY-kt1" secondAttribute="bottom" constant="8" id="zjI-oH-i9F"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="categoryLabel" destination="WvV-vT-6k8" id="UCd-FI-BLR"/>
                 <outlet property="moviesCollectionView" destination="Kco-BY-kt1" id="clk-Z0-rq8"/>
             </connections>
-            <point key="canvasLocation" x="326.76056338028172" y="0.0"/>
+            <point key="canvasLocation" x="375.7042253521127" y="-25.954198473282442"/>
         </tableViewCell>
     </objects>
     <resources>
