@@ -59,6 +59,7 @@ extension CategoryTableViewCell: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegateFlowLayout
 extension CategoryTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 200, height: 270)
+        return CGSize(width: Constants.MovieCollectionCell.cellWidth,
+                      height: Constants.MovieCollectionCell.cellHeight)
     }
 }

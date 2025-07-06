@@ -14,7 +14,7 @@ enum MovieCategory: Int, CaseIterable {
     // Computed variable
     var title: String {
         switch self {
-        case.popular: return "Popular"
+        case .popular: return "Popular"
         case .topRated: return "Top Rated"
         case .upcoming: return "Upcoming"
         }

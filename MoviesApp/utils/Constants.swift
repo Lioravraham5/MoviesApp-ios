@@ -24,6 +24,8 @@ struct Constants {
     struct CategoryTableCell{
         static let cellIdentifier = "CategoryTableViewCell"
         static let cellNibName = "CategoryTableViewCell"
+        static let rowHeight = 260
+        static let headerSectionHeight = 50
     }
     
     struct MovieTableCell {
@@ -34,6 +36,8 @@ struct Constants {
     struct MovieCollectionCell{
         static let cellIdentifier = "MovieCollectionViewCell"
         static let cellNibName = "MovieCollectionViewCell"
+        static let cellWidth = 200
+        static let cellHeight = 253
     }
     
     struct Alerts {

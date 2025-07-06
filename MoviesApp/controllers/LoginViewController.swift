@@ -60,6 +60,7 @@ class LogInViewController: UIViewController {
     
     
     @IBAction func LogInButtonPressed(_ sender: UIButton) {
+        logInButton.isEnabled = false
         guard let email = emailTextField.text,
               let password = passwordTextField.text else {
             return
@@ -73,6 +74,7 @@ class LogInViewController: UIViewController {
 extension LogInViewController: FirebaseAuthLogInDelegate {
     func didLogInSuccessfully() {
         self.performSegue(withIdentifier: Constants.Segues.LogInToMainTabBarSegue, sender: self)
+        
     }
     
     func didFailToLogIn(error: any Error) {
@@ -95,6 +97,7 @@ extension LogInViewController: FirebaseAuthLogInDelegate {
                                                                  alertMessage: Constants.Alerts.generalLoginAlertMessage)
             }
         }
+        logInButton.isEnabled = true
     }
     
     

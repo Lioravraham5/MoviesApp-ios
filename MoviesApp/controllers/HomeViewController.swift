@@ -35,7 +35,7 @@ class HomeViewController: UIViewController {
         movieAPIManager.fetchTopRatedMovies()
         movieAPIManager.fetchUpcomingMovies()
         
-        //movieAPIManager.fetchMoviesByGenre(genreID: 28)
+        
     }
     
     @IBAction func logOutButtonPressed(_ sender: UIBarButtonItem) {
@@ -128,7 +128,7 @@ extension HomeViewController: UITableViewDataSource {
 // MARK: - UITableViewDelegate
 extension HomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 300
+        return CGFloat(Constants.CategoryTableCell.rowHeight)
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -187,6 +187,6 @@ extension HomeViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        return CGFloat(Constants.CategoryTableCell.headerSectionHeight)
     }
 }

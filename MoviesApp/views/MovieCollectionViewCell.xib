@@ -10,10 +10,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MovieCollectionViewCell" id="gTV-IL-0wX" customClass="MovieCollectionViewCell" customModule="MoviesApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="200" height="270"/>
+            <rect key="frame" x="0.0" y="0.0" width="200" height="253"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="200" height="270"/>
+                <rect key="frame" x="0.0" y="0.0" width="200" height="253"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie_poster" translatesAutoresizingMaskIntoConstraints="NO" id="cg7-7Q-8dj" userLabel="Movie Poster">
@@ -23,8 +23,8 @@
                             <constraint firstAttribute="height" constant="180" id="wgz-tK-wv9"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Batman Vs Superman" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JPA-0E-WCe">
-                        <rect key="frame" x="0.0" y="204" width="200" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Batman Vs Superman - Batman Vs Superman" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JPA-0E-WCe">
+                        <rect key="frame" x="0.0" y="204" width="200" height="42"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -39,12 +39,12 @@
                 <constraint firstItem="cg7-7Q-8dj" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="16" id="kdc-PJ-Ysw"/>
                 <constraint firstAttribute="trailing" secondItem="JPA-0E-WCe" secondAttribute="trailing" id="wy7-cX-gWE"/>
             </constraints>
-            <size key="customSize" width="200" height="270"/>
+            <size key="customSize" width="200" height="253"/>
             <connections>
                 <outlet property="moviePoster" destination="cg7-7Q-8dj" id="kZ9-YY-Mcc"/>
                 <outlet property="movieTitle" destination="JPA-0E-WCe" id="JFp-Ys-TuG"/>
             </connections>
-            <point key="canvasLocation" x="-178.62595419847327" y="24.647887323943664"/>
+            <point key="canvasLocation" x="-177.09923664122135" y="11.619718309859156"/>
         </collectionViewCell>
     </objects>
     <resources>
