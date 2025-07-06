@@ -14,9 +14,29 @@ class HomeViewController: UIViewController {
     let firebaseAuthManager = FirebaseAuthManager()
     let movieAPIManager = MovieAPIManager()
     
-    private var poplarMovies: [MovieListDTO] = []
-    private var topRatedMovies: [MovieListDTO] = []
-    private var upcomingMovies: [MovieListDTO] = []
+//    private var poplarMovies: [MovieListDTO] = []
+//    private var topRatedMovies: [MovieListDTO] = []
+//    private var upcomingMovies: [MovieListDTO] = []
+    
+    private var allCategories: [MovieCategory] = [
+        .popular,
+        .topRated,
+        .upcoming,
+        .genre(id: 28, name: "Action"),
+        .genre(id: 35, name: "Comedy"),
+        .genre(id: 12, name: "Adventure"),
+        .genre(id: 18, name: "Drama"),
+        .genre(id: 10751, name: "Family"),
+        .genre(id: 27, name: "Horror"),
+        .genre(id: 14, name: "Fantasy"),
+        .genre(id: 10749, name: "Romance"),
+        .genre(id: 878, name: "Science Fiction"),
+        .genre(id: 99, name: "Documentary"),
+        .genre(id: 36, name: "History")
+        
+    ]
+
+    private var moviesByCategory: [MovieCategory: [MovieListDTO]] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,15 +51,33 @@ class HomeViewController: UIViewController {
         categoriesTableView.register(UINib(nibName: Constants.CategoryTableCell.cellNibName, bundle: nil),
                                      forCellReuseIdentifier: Constants.CategoryTableCell.cellIdentifier) // register the custome cell to the the UITabelView
         
-        movieAPIManager.fetchPopularMovies()
-        movieAPIManager.fetchTopRatedMovies()
-        movieAPIManager.fetchUpcomingMovies()
+//        movieAPIManager.fetchPopularMovies()
+//        movieAPIManager.fetchTopRatedMovies()
+//        movieAPIManager.fetchUpcomingMovies()
+        
+        fetchMoviesFromAllCategories()
+        
         
         
     }
     
     @IBAction func logOutButtonPressed(_ sender: UIBarButtonItem) {
         firebaseAuthManager.logOutUser()
+    }
+    
+    func fetchMoviesFromAllCategories() {
+        for category in allCategories {
+            switch category {
+            case .popular:
+                movieAPIManager.fetchPopularMovies()
+            case .topRated:
+                movieAPIManager.fetchTopRatedMovies()
+            case .upcoming:
+                movieAPIManager.fetchUpcomingMovies()
+            case .genre(let id, _):
+                movieAPIManager.fetchMoviesByGenre(genreID: id, category: category)
+            }
+        }
     }
 }
 // MARK: - FirebaseAuthLogOutDelegate
@@ -70,17 +108,24 @@ extension HomeViewController: FirebaseAuthLogOutDelegate {
 // MARK: - MovieListFetchDelegate
 extension HomeViewController: MovieListFetchDelegate {
     func didReceiveMovies(_ movieAPIManager: MovieAPIManager, movies: [MovieListDTO], category: MovieCategory) {
+//        DispatchQueue.main.async {
+//            switch category {
+//            case .popular:
+//                self.poplarMovies = movies
+//            case .topRated:
+//                self.topRatedMovies = movies
+//            case .upcoming:
+//                self.upcomingMovies = movies
+//            }
+//        }
+//        DispatchQueue.main.async {
+//            self.categoriesTableView.reloadData() // updating categoriesTableView
+//        }
+        
+        print("\nHomeViewController: \(category.title): \(movies)")
+        
         DispatchQueue.main.async {
-            switch category {
-            case .popular:
-                self.poplarMovies = movies
-            case .topRated:
-                self.topRatedMovies = movies
-            case .upcoming:
-                self.upcomingMovies = movies
-            }
-        }
-        DispatchQueue.main.async {
+            self.moviesByCategory[category] = movies
             self.categoriesTableView.reloadData() // updating categoriesTableView
         }
         
@@ -95,7 +140,7 @@ extension HomeViewController: MovieListFetchDelegate {
 extension HomeViewController: UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return MovieCategory.allCases.count
+        return allCategories.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -107,18 +152,10 @@ extension HomeViewController: UITableViewDataSource {
             return UITableViewCell() // If it doesn't succeed to casting the cell to CategoryTableViewCell, it return an empty UITableViewCell
         }
         
-        let category = MovieCategory(rawValue: indexPath.section)
+        let category = allCategories[indexPath.section]
+        let movies = moviesByCategory[category] ?? []
         
-        switch category {
-        case .popular:
-            cell.configure(with: poplarMovies)
-        case .topRated:
-            cell.configure(with: topRatedMovies)
-        case .upcoming:
-            cell.configure(with: upcomingMovies)
-        case .none:
-            break
-        }
+        cell.configure(with: movies)
         
         return cell
     }
@@ -132,7 +169,7 @@ extension HomeViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return MovieCategory(rawValue: section)?.title
+        return allCategories[section].title
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -140,7 +177,7 @@ extension HomeViewController: UITableViewDelegate {
         headerView.backgroundColor = .systemBackground
         
         // Get the movie category
-        guard let category = MovieCategory(rawValue: section) else { return nil }
+        let category = allCategories[section]
         
         // Icon for the category
         let iconImageView = UIImageView()
@@ -156,6 +193,8 @@ extension HomeViewController: UITableViewDelegate {
             iconImageView.image = UIImage(systemName: "star.fill")
         case .upcoming:
             iconImageView.image = UIImage(systemName: "calendar.badge.plus")
+        case .genre:
+            iconImageView.image = UIImage(systemName: "film.fill")
         }
         
         // Title label

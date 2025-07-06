@@ -43,10 +43,10 @@ class MovieAPIManager {
         performMovieListRequest(with: url, category: .upcoming)
     }
     
-//    func fetchMoviesByGenre(genreID: Int){
-//        let url = "\(baseURL)/discover/movie?api_key=\(apiKey)&sort_by=popularity.desc&with_genres=\(genreID)"
-//        performMovieListRequest(with: url)
-//    }
+    func fetchMoviesByGenre(genreID: Int, category: MovieCategory){
+        let url = "\(baseURL)/discover/movie?api_key=\(apiKey)&sort_by=popularity.desc&with_genres=\(genreID)"
+        performMovieListRequest(with: url, category: category)
+    }
     
     func fetchMovieByID(movieID: Int){
         let url = "\(baseURL)/movie/\(movieID)?api_key=\(apiKey)"
