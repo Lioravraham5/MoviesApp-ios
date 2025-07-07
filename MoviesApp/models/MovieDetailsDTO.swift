@@ -18,6 +18,11 @@ struct MovieDetailsDTO: Decodable {
     let overview: String
     let vote_average: Double
     let release_date: String
-    let runtime: Int
+    let runtime: Int // Movie duration in minutes
     let genres: [Genre]
+    
+    var genresDisplayString: String {
+        genres.map { $0.name } // Iterate in each genre in genres and return new array of genre names
+            .joined(separator: ", ") // Combines all genre names into a single string with commas between them
+    }
 }

@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol CategoryTableViewCellDelegate: AnyObject {
+    func didSelectMovie(_ movie: MovieListDTO)
+}
+
 class CategoryTableViewCell: UITableViewCell {
 
     @IBOutlet weak var moviesCollectionView: UICollectionView!
+    
+    weak var delegate: CategoryTableViewCellDelegate?
     
     private var movies: [MovieListDTO] = []
     
@@ -53,6 +59,14 @@ extension CategoryTableViewCell: UICollectionViewDataSource {
         let movie = movies[indexPath.item]
         cell.configure(with: movie)
         return cell
+    }
+}
+
+// MARK: - UICollectionViewDelegate
+extension CategoryTableViewCell: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedMovie = movies[indexPath.item]
+        delegate?.didSelectMovie(selectedMovie)
     }
 }
 

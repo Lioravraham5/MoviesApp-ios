@@ -388,7 +388,7 @@
         <!--Movie View Controller-->
         <scene sceneID="q4W-BC-LPZ">
             <objects>
-                <viewController id="hGS-8f-0nT" customClass="MovieViewController" customModule="MoviesApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="hGS-8f-0nT" customClass="MovieViewController" customModule="MoviesApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="LXG-Va-q5y">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -574,18 +574,22 @@
                     <navigationItem key="navigationItem" id="4Zj-gr-Ggf"/>
                     <connections>
                         <outlet property="addToWatchListButton" destination="Bkz-e0-reO" id="UWT-dL-eyj"/>
+                        <outlet property="calendarIcon" destination="oow-Vp-Tu8" id="JF4-3L-Zgs"/>
+                        <outlet property="clockIcon" destination="bIM-1x-kPV" id="wME-wR-wGX"/>
                         <outlet property="cosmosView" destination="fMk-94-cyw" id="Vqe-Sf-395"/>
+                        <outlet property="filmIcon" destination="a9N-sR-bnG" id="58T-Ot-OoI"/>
                         <outlet property="genresLabel" destination="QSY-o2-8ma" id="jsD-7P-VyU"/>
                         <outlet property="moviePoster" destination="x0j-YP-awz" id="7xP-dn-Khs"/>
                         <outlet property="movieRuntimeLabel" destination="LLM-Tw-gWi" id="wf8-ot-9sw"/>
                         <outlet property="movieTitle" destination="KuV-tR-9D8" id="lzo-b4-tJe"/>
                         <outlet property="overviewContentLabel" destination="xPa-7r-OLM" id="KK0-Pd-Tuo"/>
+                        <outlet property="overviewHeadLineLabel" destination="SG9-2c-Ego" id="mkM-Dw-oTO"/>
                         <outlet property="releaseYearLabel" destination="MBl-ih-0bB" id="sYM-tB-gi6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8F0-zL-vBV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8376.3358778625952" y="-150"/>
+            <point key="canvasLocation" x="7126" y="-157"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Klr-ZC-okI">
@@ -645,8 +649,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="498-bw-0KY"/>
-        <segue reference="5da-kY-oTV"/>
+        <segue reference="1aI-gL-6VJ"/>
+        <segue reference="e0U-5w-omk"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bookmark.fill" catalog="system" width="110" height="128"/>

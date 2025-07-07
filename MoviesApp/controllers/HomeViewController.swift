@@ -14,10 +14,6 @@ class HomeViewController: UIViewController {
     let firebaseAuthManager = FirebaseAuthManager()
     let movieAPIManager = MovieAPIManager()
     
-//    private var poplarMovies: [MovieListDTO] = []
-//    private var topRatedMovies: [MovieListDTO] = []
-//    private var upcomingMovies: [MovieListDTO] = []
-    
     private var allCategories: [MovieCategory] = [
         .popular,
         .topRated,
@@ -35,6 +31,8 @@ class HomeViewController: UIViewController {
         .genre(id: 36, name: "History")
         
     ]
+    
+    private var selectedMovieID: Int?
 
     private var moviesByCategory: [MovieCategory: [MovieListDTO]] = [:]
     
@@ -51,14 +49,7 @@ class HomeViewController: UIViewController {
         categoriesTableView.register(UINib(nibName: Constants.CategoryTableCell.cellNibName, bundle: nil),
                                      forCellReuseIdentifier: Constants.CategoryTableCell.cellIdentifier) // register the custome cell to the the UITabelView
         
-//        movieAPIManager.fetchPopularMovies()
-//        movieAPIManager.fetchTopRatedMovies()
-//        movieAPIManager.fetchUpcomingMovies()
-        
         fetchMoviesFromAllCategories()
-        
-        
-        
     }
     
     @IBAction func logOutButtonPressed(_ sender: UIBarButtonItem) {
@@ -77,6 +68,16 @@ class HomeViewController: UIViewController {
             case .genre(let id, _):
                 movieAPIManager.fetchMoviesByGenre(genreID: id, category: category)
             }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constants.Segues.HomeToMovieSegue {
+            if let destinationVC = segue.destination as? MovieViewController,
+               let movieID = selectedMovieID {
+                destinationVC.movieIDOpt = movieID
+            }
+                    
         }
     }
 }
@@ -108,22 +109,6 @@ extension HomeViewController: FirebaseAuthLogOutDelegate {
 // MARK: - MovieListFetchDelegate
 extension HomeViewController: MovieListFetchDelegate {
     func didReceiveMovies(_ movieAPIManager: MovieAPIManager, movies: [MovieListDTO], category: MovieCategory) {
-//        DispatchQueue.main.async {
-//            switch category {
-//            case .popular:
-//                self.poplarMovies = movies
-//            case .topRated:
-//                self.topRatedMovies = movies
-//            case .upcoming:
-//                self.upcomingMovies = movies
-//            }
-//        }
-//        DispatchQueue.main.async {
-//            self.categoriesTableView.reloadData() // updating categoriesTableView
-//        }
-        
-        print("\nHomeViewController: \(category.title): \(movies)")
-        
         DispatchQueue.main.async {
             self.moviesByCategory[category] = movies
             self.categoriesTableView.reloadData() // updating categoriesTableView
@@ -154,6 +139,8 @@ extension HomeViewController: UITableViewDataSource {
         
         let category = allCategories[indexPath.section]
         let movies = moviesByCategory[category] ?? []
+        
+        cell.delegate = self // set HomeViewController delegate of CategoryTableViewCell
         
         cell.configure(with: movies)
         
@@ -227,5 +214,13 @@ extension HomeViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return CGFloat(Constants.CategoryTableCell.headerSectionHeight)
+    }
+}
+
+// MARK: - CategoryTableViewCellDelegate
+extension HomeViewController: CategoryTableViewCellDelegate {
+    func didSelectMovie(_ movie: MovieListDTO) {
+        selectedMovieID = movie.id
+        performSegue(withIdentifier: Constants.Segues.HomeToMovieSegue, sender: self)
     }
 }
