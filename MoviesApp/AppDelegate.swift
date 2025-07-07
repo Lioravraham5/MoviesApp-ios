@@ -8,6 +8,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 import FirebaseCore
+import FirebaseFirestore
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.resignOnTouchOutside = true // when press outside the keyboard it will dismiss
         
         FirebaseApp.configure() // Initialize Firebase services using the configuration from GoogleService-Info.plist
+        
+        let db = Firestore.firestore() // initialize an instance of Cloud firestore
+        print("AppDelegate: Firestore Database instance - \(db)")
         
         return true
     }

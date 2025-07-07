@@ -8,7 +8,7 @@
 import Foundation
 import FirebaseAuth
 
-// MARK: FirebaseAuthManager protocols
+// MARK: - FirebaseAuthManager protocols
 protocol FirebaseAuthRegisterDelegate: AnyObject {
     func didRegisterSuccessfully()
     func didFailToRegister(error: Error)
@@ -24,7 +24,7 @@ protocol FirebaseAuthLogOutDelegate: AnyObject {
     func didFailToLogOut(error: Error)
 }
 
-// MARK: FirebaseAuthManager class
+// MARK: - FirebaseAuthManager class
 class FirebaseAuthManager {
     
     weak var registerDelegate: FirebaseAuthRegisterDelegate?

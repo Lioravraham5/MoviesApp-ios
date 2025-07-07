@@ -74,5 +74,23 @@ struct Constants {
         
     }
     
+    struct FirestoreDB {
+        static let watchlists = "watchlists" // Main collection for users watchlists"
+        static let movies = "movies" // Sub collection for movies inside of 'userID' inside of "watchlists"
+        
+        struct MovieData {
+            static let id = "id"
+            static let originalTitle = "original_title"
+            static let overview = "overview"
+            static let posterPath = "poster_path"
+            static let releaseDate = "release_date"
+            static let runtime = "runtime"
+            static let voteAverage = "vote_average"
+            static let genres = "genres"
+            static let genreID = "id"
+            static let genreName = "name"
+        }
+    }
+    
  
 }
