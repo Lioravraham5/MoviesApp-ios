@@ -9,7 +9,7 @@ import UIKit
 import Cosmos
 
 class MovieViewController: UIViewController {
-
+    
     @IBOutlet weak var moviePoster: UIImageView!
     @IBOutlet weak var movieTitle: UILabel!
     @IBOutlet weak var releaseYearLabel: UILabel!
@@ -22,9 +22,12 @@ class MovieViewController: UIViewController {
     @IBOutlet weak var clockIcon: UIImageView!
     @IBOutlet weak var filmIcon: UIImageView!
     @IBOutlet weak var overviewHeadLineLabel: UILabel!
+    
     var movieIDOpt: Int?
     
-    let movieAPIManager = MovieAPIManager()
+    private let movieAPIManager = MovieAPIManager()
+    private let firestoreWatchlistManager = FirestoreWatchListsManager()
+    private var currrentMovieOpt: MovieDetailsDTO?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +38,8 @@ class MovieViewController: UIViewController {
         hideViews()
         configureUI()
         
+        firestoreWatchlistManager.writeDelegate = self
+        
         if let movieID = movieIDOpt {
             print("MovieViewController: movieID - \(movieID)")
             movieAPIManager.movieFetchDelegate = self
@@ -42,6 +47,23 @@ class MovieViewController: UIViewController {
         } else{
             print("MovieViewController: movieID doesn't accepted, movieIDOpt - \(String(describing: movieIDOpt))")
         }
+    }
+    
+    
+    @IBAction func addToWatchListButtonPressed(_ sender: UIButton) {
+        guard let currentMovie = currrentMovieOpt else {
+            print("MovieViewController: No movie to save.")
+            return
+        }
+        
+        /*Since addMovieToWatchList(movie:) is marked as 'async', we must call it with 'await'.
+         However, this IBAction method is not asynchronous, so we need to wrap the call in a Task block.
+         */
+        Task {
+            await firestoreWatchlistManager.addMovieToWatchList(movie: currentMovie)
+        }
+        
+        
     }
     
     func configureUI() {
@@ -78,13 +100,14 @@ class MovieViewController: UIViewController {
         filmIcon.isHidden = false
         overviewHeadLineLabel.isHidden = false
     }
-
+    
 }
 
 // MARK: - MovieFetchDelegate
 extension MovieViewController: MovieFetchDelegate {
     func didReceiveMovie(_ movieAPIManager: MovieAPIManager, movie: MovieDetailsDTO) {
         DispatchQueue.main.async {
+            self.currrentMovieOpt = movie
             self.updateUI(with: movie)
             self.showViews()
         }
@@ -112,7 +135,7 @@ extension MovieViewController: MovieFetchDelegate {
         overviewContentLabel.text = movie.overview // Set movie overview
         
         movieRuntimeLabel.text = "\(movie.runtime / 60) h \(movie.runtime % 60) min" // Set movie duration
-       
+        
         // Set stars rank
         cosmosView.rating = movie.vote_average
         cosmosView.text = String(format: "%.1f", movie.vote_average)
@@ -131,5 +154,39 @@ extension MovieViewController: MovieFetchDelegate {
         
         return nil // In case of invalid date
     }
+}
+
+// MARK: - FirestoreWatchListWriteDelegate
+extension MovieViewController: FirestoreWatchListWriteDelegate {
+    func didAddMovieToWatchlistSuccessfully(_ movie: MovieDetailsDTO) {
+        print("MovieViewController: The movie: ID - \(movie.id), Title - \(movie.original_title) added to watchlist successfully")
+        DispatchQueue.main.async {
+            AlertPresenterManager.showAutoDismissAlert(on: self,
+                                                       alertTitle: Constants.Alerts.watchlistAddSuccessAlertTitle,
+                                                       alertMessage: Constants.Alerts.watchlistAddSuccessAlertMessage(movie.original_title))
+        }
+    }
+    
+    func didFindMovieAlreadyInWatchlist(_ movie: MovieDetailsDTO) {
+        print("MovieViewController: The movie: ID - \(movie.id), Title - \(movie.original_title) already in watchlist")
+        DispatchQueue.main.async {
+            AlertPresenterManager.ShowAlertWithConfirmButton(on: self,
+                                                             alertTitle: Constants.Alerts.watchlistAlreadyExistsAlertTitle,
+                                                             alertMessage: Constants.Alerts.watchlistAlreadyExistsAlertMessage(movie.original_title))
+        }
+        
+        
+    }
+    
+    func didFailToAddMovieToWatchlist(error: any Error) {
+        print("MovieViewController: Failed to add the movie: \(error.localizedDescription)")
+        DispatchQueue.main.async {
+            AlertPresenterManager.ShowAlertWithConfirmButton(on: self,
+                                                             alertTitle: Constants.Alerts.watchlistAddFailedAlertTitle,
+                                                             alertMessage: Constants.Alerts.watchlistAddFailedAlertMessage)
+        }
+        
+    }
+    
     
 }

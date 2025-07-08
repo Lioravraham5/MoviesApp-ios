@@ -7,11 +7,13 @@
 
 struct Constants {
     
+    // MARK: - TMDBURLs
     struct TMDBURLs {
         static let TMDBImageBaseURL185 = "https://image.tmdb.org/t/p/w185"
         static let TMDBImageBaseURL500 = "https://image.tmdb.org/t/p/w500"
     }
     
+    // MARK: - Segues
     struct Segues {
         static let mainToLoginSegue = "MainToLogin"
         static let mainToRegisterSegue = "MainToRegister"
@@ -21,6 +23,7 @@ struct Constants {
         static let WatchListToMovieSegue = "WatchListToMovie"
     }
     
+    // MARK: - CategoryTableCell
     struct CategoryTableCell{
         static let cellIdentifier = "CategoryTableViewCell"
         static let cellNibName = "CategoryTableViewCell"
@@ -28,11 +31,13 @@ struct Constants {
         static let headerSectionHeight = 50
     }
     
+    // MARK: - MovieTableCell
     struct MovieTableCell {
         static let cellIdentifier = "MovieTableViewCell"
         static let cellNibName = "MovieTableViewCell"
     }
     
+    // MARK: - MovieCollectionCell
     struct MovieCollectionCell{
         static let cellIdentifier = "MovieCollectionViewCell"
         static let cellNibName = "MovieCollectionViewCell"
@@ -40,6 +45,7 @@ struct Constants {
         static let cellHeight = 253
     }
     
+    // MARK: - Alerts
     struct Alerts {
         
         // RegisterViewController
@@ -72,8 +78,23 @@ struct Constants {
         static let generalLoginAlertTitle = "Login Failed"
         static let generalLoginAlertMessage = "We couldn't log you in. Please check your email and password, and ensure you have an internet connection."
         
+        // MovieViewController - watchlist alerts
+        static let watchlistAddSuccessAlertTitle = "Movie added"
+        static func watchlistAddSuccessAlertMessage(_ movieTitle: String) -> String {
+            return "The movie - \"\(movieTitle)\" was successfully added to your watchlist."
+        }
+        
+        static let watchlistAlreadyExistsAlertTitle = "Movie is already added"
+        static func watchlistAlreadyExistsAlertMessage(_ movieTitle: String) -> String {
+            return "The movie - \"\(movieTitle)\" is already in your watchlist."
+        }
+        
+        static let watchlistAddFailedAlertTitle = "Add Failed"
+        static let watchlistAddFailedAlertMessage = "We couldn't add this movie to your watchlist. Please try again later."
+        
     }
     
+    // MARK: - FirestoreDB
     struct FirestoreDB {
         static let watchlists = "watchlists" // Main collection for users watchlists"
         static let movies = "movies" // Sub collection for movies inside of 'userID' inside of "watchlists"
@@ -89,6 +110,7 @@ struct Constants {
             static let genres = "genres"
             static let genreID = "id"
             static let genreName = "name"
+            static let addedAt = "added_at"
         }
     }
     
