@@ -13,6 +13,7 @@ class WatchListViewController: UIViewController {
     
     private let firestoreWatchlistManager = FirestoreWatchListsManager()
     private var movies: [MovieDetailsDTO] = []
+    private var selectedMovie: MovieDetailsDTO?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,7 @@ class WatchListViewController: UIViewController {
             forCellReuseIdentifier: Constants.MovieTableCell.cellIdentifier) // register the custome cell to the the UITabelView
         
         moviesTableView.dataSource = self
+        moviesTableView.delegate = self
         firestoreWatchlistManager.readDelegate = self
         firestoreWatchlistManager.deleteDelegate = self
     }
@@ -30,6 +32,16 @@ class WatchListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         firestoreWatchlistManager.fetchWatchList() // fetch Movies fro, firestore DB
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Constants.Segues.WatchListToMovieSegue {
+            if let destinationVC = segue.destination as? MovieViewController,
+               let movie = selectedMovie {
+                destinationVC.shouldFetchMovieFromAPI = false
+                destinationVC.currrentMovieOpt = movie
+            }
+        }
     }
 }
 
@@ -50,6 +62,16 @@ extension WatchListViewController: UITableViewDataSource {
         cell.configure(with: movie)
         
         return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension WatchListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedMovie = movies[indexPath.row]
+        performSegue(withIdentifier: Constants.Segues.WatchListToMovieSegue, sender: self)
+        tableView.deselectRow(at: indexPath, animated: true) // Removes the highlight from the selected cell
+        
     }
 }
 

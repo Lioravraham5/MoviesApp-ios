@@ -27,7 +27,8 @@ class MovieViewController: UIViewController {
     
     private let movieAPIManager = MovieAPIManager()
     private let firestoreWatchlistManager = FirestoreWatchListsManager()
-    private var currrentMovieOpt: MovieDetailsDTO?
+    var currrentMovieOpt: MovieDetailsDTO?
+    var shouldFetchMovieFromAPI: Bool = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,13 +41,25 @@ class MovieViewController: UIViewController {
         
         firestoreWatchlistManager.writeDelegate = self
         
-        if let movieID = movieIDOpt {
-            print("MovieViewController: movieID - \(movieID)")
-            movieAPIManager.movieFetchDelegate = self
-            movieAPIManager.fetchMovieByID(movieID: movieID)
-        } else{
-            print("MovieViewController: movieID doesn't accepted, movieIDOpt - \(String(describing: movieIDOpt))")
+        if shouldFetchMovieFromAPI {
+            print("MovieViewController: Movie will fetch from TMDB API.")
+            if let movieID = movieIDOpt {
+                print("MovieViewController: movieID - \(movieID)")
+                movieAPIManager.movieFetchDelegate = self
+                movieAPIManager.fetchMovieByID(movieID: movieID)
+            } else{
+                print("MovieViewController: movieID doesn't accepted, movieIDOpt - \(String(describing: movieIDOpt))")
+            }
+        } else {
+            print("MovieViewController: Movie will load from watchlist.")
+            if let movie = currrentMovieOpt {
+                updateUI(with: movie)
+                showViews()
+            }
         }
+        
+        
+        
     }
     
     
