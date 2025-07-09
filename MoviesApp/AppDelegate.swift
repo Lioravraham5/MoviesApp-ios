@@ -13,7 +13,10 @@ import FirebaseFirestore
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+    /*orientationLock - variable that holds the screen orientation allowed in the app
+     Default - enable all oriantation positions
+     */
+    var orientationLock: UIInterfaceOrientationMask = .all
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -28,6 +31,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print("AppDelegate: Firestore Database instance - \(db)")
         
         return true
+    }
+    
+    // Add this method to return orientationLock position
+    func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+        return orientationLock
     }
 
     // MARK: UISceneSession Lifecycle

@@ -57,11 +57,19 @@ class MovieViewController: UIViewController {
                 showViews()
             }
         }
-        
-        
-        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        OrientationManager.lockOrientation(.portrait,
+                                           andRotateTo: .portrait,
+                                           for: self)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        OrientationManager.lockOrientation(.all) // Restore to allow all orientations elsewhere
+    }
     
     @IBAction func addToWatchListButtonPressed(_ sender: UIButton) {
         guard let currentMovie = currrentMovieOpt else {
@@ -113,7 +121,6 @@ class MovieViewController: UIViewController {
         filmIcon.isHidden = false
         overviewHeadLineLabel.isHidden = false
     }
-    
 }
 
 // MARK: - MovieFetchDelegate
