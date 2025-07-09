@@ -124,17 +124,9 @@ extension MovieViewController: MovieFetchDelegate {
         ImageUtils.loadImage(from: fullMoviePosterUrl, into: moviePoster)
         
         movieTitle.text = movie.original_title // Set Movie title
-        
-        // Set movie released year
-        if let year = extractYear(from: movie.release_date) {
-            releaseYearLabel.text = year
-        } else {
-            releaseYearLabel.text = "To Be Determined"
-        }
-        
+        releaseYearLabel.text = movie.releaseYearString // Set movie released year
         overviewContentLabel.text = movie.overview // Set movie overview
-        
-        movieRuntimeLabel.text = "\(movie.runtime / 60) h \(movie.runtime % 60) min" // Set movie duration
+        movieRuntimeLabel.text =  movie.runtimeString // Set movie duration
         
         // Set stars rank
         cosmosView.rating = movie.vote_average
@@ -142,17 +134,6 @@ extension MovieViewController: MovieFetchDelegate {
         
         genresLabel.text = movie.genresDisplayString // Set genres
         
-    }
-    
-    private func extractYear(from releaseDate: String) -> String? {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyy-MM-dd"
-        if let date = formatter.date(from: releaseDate) {
-            let year = Calendar.current.component(.year, from: date)
-            return String(year)
-        }
-        
-        return nil // In case of invalid date
     }
 }
 

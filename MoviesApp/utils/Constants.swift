@@ -92,6 +92,9 @@ struct Constants {
         static let watchlistAddFailedAlertTitle = "Add Failed"
         static let watchlistAddFailedAlertMessage = "We couldn't add this movie to your watchlist. Please try again later."
         
+        static let watchlistDeleteFailedAlertTitle = "Delete Failed"
+        static let watchlistDeleteFailedAlertMessage = "We couldn't remove the movie from your watchlist. Please try again later."
+        
     }
     
     // MARK: - FirestoreDB

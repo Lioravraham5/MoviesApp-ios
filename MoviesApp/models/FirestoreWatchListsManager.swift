@@ -20,7 +20,7 @@ protocol FirestoreWatchListReadDelegate: AnyObject {
     func didFailToFetchWatchlist(error: Error)
 }
 
-protocol FirestoreWatchListDeleteDelete: AnyObject {
+protocol FirestoreWatchListDeleteDelegate: AnyObject {
     func didDeleteMovieFromWatchlistSuccessfully(movieID: Int)
     func didFailToDeleteMovieFromWatchlist(error: Error)
 }
@@ -35,7 +35,7 @@ protocol FirestoreWatchListFetchSingleMovieDelegate: AnyObject {
 class FirestoreWatchListsManager {
     weak var writeDelegate: FirestoreWatchListWriteDelegate?
     weak var readDelegate: FirestoreWatchListReadDelegate?
-    weak var deleteDelegate: FirestoreWatchListDeleteDelete?
+    weak var deleteDelegate: FirestoreWatchListDeleteDelegate?
     weak var fetchSingleMovieDelegate: FirestoreWatchListFetchSingleMovieDelegate?
     
     private let db = Firestore.firestore() // reference to the Cloud firestore (the database)
