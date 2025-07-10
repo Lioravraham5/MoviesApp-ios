@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "movie_mood_logo_light_mode.jpg",
+      "filename" : "app_icon_light.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -13,7 +13,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "movie_mood_logo_dark_mode.jpg",
+      "filename" : "app_icon_dark.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"

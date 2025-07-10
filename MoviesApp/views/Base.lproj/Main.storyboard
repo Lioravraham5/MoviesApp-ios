@@ -131,6 +131,7 @@
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="lior@gmail.com" borderStyle="roundedRect" placeholder="Enter your email.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zd4-fi-fdI" userLabel="EmailTextField">
                                 <rect key="frame" x="70" y="417" width="253" height="45"/>
+                                <color key="backgroundColor" name="textField_background_color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="pH8-3Z-YGt">
                                         <variation key="heightClass=compact-widthClass=compact" constant="45"/>
@@ -142,6 +143,7 @@
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="abc123" borderStyle="roundedRect" placeholder="Enter your password.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lNc-ei-syh" userLabel="PasswordTextField">
                                 <rect key="frame" x="70" y="478" width="253" height="45"/>
+                                <color key="backgroundColor" name="textField_background_color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="lcj-NM-tIm">
                                         <variation key="heightClass=compact-widthClass=compact" constant="45"/>
@@ -231,6 +233,7 @@
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="lior@gmail.com" borderStyle="roundedRect" placeholder="Enter you email.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="efd-sD-EVe" userLabel="EmailTextField">
                                 <rect key="frame" x="70" y="417" width="253" height="45"/>
+                                <color key="backgroundColor" name="textField_background_color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Lr4-tQ-lca">
                                         <variation key="heightClass=compact-widthClass=compact" constant="45"/>
@@ -242,6 +245,7 @@
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="abc123" borderStyle="roundedRect" placeholder="Enter your password.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HZf-GI-fKh" userLabel="PasswordTextField">
                                 <rect key="frame" x="70" y="478" width="253" height="45"/>
+                                <color key="backgroundColor" name="textField_background_color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="pHu-nP-DIL">
                                         <variation key="heightClass=compact-widthClass=compact" constant="45"/>
@@ -334,7 +338,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="selectedImageTintColor" red="0.66666668650000005" green="0.2462268822" blue="0.3279273942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" name="top_and_bottom_bar_buttons_color"/>
                     </tabBar>
                     <connections>
                         <segue destination="omB-TR-23O" kind="relationship" relationship="viewControllers" id="7Ad-Pb-Lkb"/>
@@ -359,7 +363,6 @@
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="HpZ-ZG-bE4"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="mF8-gN-DLO" firstAttribute="leading" secondItem="HpZ-ZG-bE4" secondAttribute="leading" id="C6G-8b-ADw"/>
                             <constraint firstItem="mF8-gN-DLO" firstAttribute="top" secondItem="HpZ-ZG-bE4" secondAttribute="top" id="Piy-L9-YJK"/>
@@ -401,7 +404,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="jN0-bi-vYF">
                         <barButtonItem key="rightBarButtonItem" title="Log Out" id="yaK-zd-O0X" userLabel="Log Out">
-                            <color key="tintColor" red="0.66666668650000005" green="0.2709356027" blue="0.066924459670000006" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" name="top_and_bottom_bar_buttons_color"/>
                             <connections>
                                 <action selector="logOutButtonPressed:" destination="ebk-Ml-02u" id="tkF-Nr-0fX"/>
                             </connections>
@@ -683,8 +686,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="1aI-gL-6VJ"/>
-        <segue reference="e0U-5w-omk"/>
+        <segue reference="498-bw-0KY"/>
+        <segue reference="5da-kY-oTV"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bookmark.fill" catalog="system" width="110" height="128"/>
@@ -710,6 +713,12 @@
         </namedColor>
         <namedColor name="red">
             <color red="0.54509803921568623" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="textField_background_color">
+            <color red="0.99999994039535522" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="top_and_bottom_bar_buttons_color">
+            <color red="0.17254901960784313" green="0.32549019607843138" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

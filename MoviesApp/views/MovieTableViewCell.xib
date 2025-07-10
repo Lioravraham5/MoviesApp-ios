@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,10 +11,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MovieTableViewCell" rowHeight="166" id="KGk-i7-Jjw" customClass="MovieTableViewCell" customModule="MoviesApp" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="423" height="166"/>
+            <rect key="frame" x="0.0" y="0.0" width="433" height="166"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="423" height="166"/>
+                <rect key="frame" x="0.0" y="0.0" width="433" height="166"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie_poster" translatesAutoresizingMaskIntoConstraints="NO" id="MHB-yx-9pR" userLabel="MoviePoster ImageView">
@@ -25,14 +26,16 @@
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6j2-Gu-vS3" userLabel="Remove Button">
                         <rect key="frame" x="366" y="60.666666666666657" width="45" height="45"/>
-                        <color key="backgroundColor" red="0.66666668650000005" green="0.2462268822" blue="0.3279273942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="remove_movie_button_background_color"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="45" id="Wka-WF-wI4"/>
                             <constraint firstAttribute="width" constant="45" id="t2w-V7-if8"/>
                         </constraints>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="plain" image="trash.fill" catalog="system"/>
+                        <buttonConfiguration key="configuration" style="plain" image="trash.fill" catalog="system">
+                            <color key="baseForegroundColor" name="remove_movie_button_icon_color"/>
+                        </buttonConfiguration>
                         <connections>
                             <action selector="removeButtonPressed:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="O6y-BH-548"/>
                         </connections>
@@ -45,7 +48,7 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="film" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="4MP-ZP-AIw">
                                         <rect key="frame" x="0.0" y="1.6666666666666643" width="36.333333333333336" height="28.666666666666671"/>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" name="movie_table_view_cell_icons_text_color"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="36.333333333333336" id="XX5-wT-eGy"/>
                                         </constraints>
@@ -53,7 +56,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Batman Vs Superman  " lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WjC-kX-g6t" userLabel="MovieTitle Label">
                                         <rect key="frame" x="36.333333333333343" y="0.0" width="181.66666666666666" height="31.666666666666668"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="movie_table_view_cell_icons_text_color"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -66,12 +69,12 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tag" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Hee-aj-WPS">
                                         <rect key="frame" x="0.0" y="0.33333333333333215" width="36.333333333333336" height="31.999999999999996"/>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" name="movie_table_view_cell_icons_text_color"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Action, Drama, Comedy " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TyO-Cm-S2i" userLabel="Genres Label">
                                         <rect key="frame" x="36.333333333333343" y="0.0" width="181.66666666666666" height="31.333333333333332"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="movie_table_view_cell_icons_text_color"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -84,12 +87,12 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="FOl-dj-eip">
                                         <rect key="frame" x="0.0" y="1.6666666666666643" width="36.333333333333336" height="28.666666666666671"/>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" name="movie_table_view_cell_icons_text_color"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2024" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5vv-Bq-pBo" userLabel="Date Label">
                                         <rect key="frame" x="36.333333333333343" y="0.0" width="181.66666666666666" height="31.666666666666668"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="movie_table_view_cell_icons_text_color"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -102,12 +105,12 @@
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clock" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="5z1-LS-IDj">
                                         <rect key="frame" x="0.0" y="0.66666666666666607" width="36.333333333333336" height="30"/>
-                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" name="movie_table_view_cell_icons_text_color"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 h 33 min" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oOv-f5-4Qy" userLabel="Length Label">
                                         <rect key="frame" x="36.333333333333343" y="0.0" width="181.66666666666666" height="31.333333333333332"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" name="movie_table_view_cell_icons_text_color"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -142,7 +145,7 @@
                 <outlet property="releaseYearLabel" destination="5vv-Bq-pBo" id="amb-iT-mqK"/>
                 <outlet property="removeButton" destination="6j2-Gu-vS3" id="wWL-mk-0fN"/>
             </connections>
-            <point key="canvasLocation" x="307.63358778625951" y="23.943661971830988"/>
+            <point key="canvasLocation" x="315.26717557251908" y="23.943661971830988"/>
         </tableViewCell>
     </objects>
     <resources>
@@ -152,5 +155,14 @@
         <image name="movie_poster" width="1000" height="1482"/>
         <image name="tag" catalog="system" width="128" height="118"/>
         <image name="trash.fill" catalog="system" width="117" height="128"/>
+        <namedColor name="movie_table_view_cell_icons_text_color">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="remove_movie_button_background_color">
+            <color red="0.17254901960784313" green="0.32549019607843138" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="remove_movie_button_icon_color">
+            <color red="0.99999994039535522" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>
