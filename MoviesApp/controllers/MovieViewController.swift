@@ -43,12 +43,14 @@ class MovieViewController: UIViewController {
         
         if shouldFetchMovieFromAPI {
             print("MovieViewController: Movie will fetch from TMDB API.")
+            LoadingIndicatorManager.show(on: self) // Show loading spinner
             if let movieID = movieIDOpt {
                 print("MovieViewController: movieID - \(movieID)")
                 movieAPIManager.movieFetchDelegate = self
                 movieAPIManager.fetchMovieByID(movieID: movieID)
             } else{
                 print("MovieViewController: movieID doesn't accepted, movieIDOpt - \(String(describing: movieIDOpt))")
+                LoadingIndicatorManager.hide() // Hide spinner in case of invalid movieID
             }
         } else {
             print("MovieViewController: Movie will load from watchlist.")
@@ -127,6 +129,7 @@ class MovieViewController: UIViewController {
 extension MovieViewController: MovieFetchDelegate {
     func didReceiveMovie(_ movieAPIManager: MovieAPIManager, movie: MovieDetailsDTO) {
         DispatchQueue.main.async {
+            LoadingIndicatorManager.hide() // Hide loading spinner when data is ready
             self.currrentMovieOpt = movie
             self.updateUI(with: movie)
             self.showViews()
@@ -135,6 +138,13 @@ extension MovieViewController: MovieFetchDelegate {
     
     func didFailWithError(error: any Error) {
         print("MovieViewController: Failed to fetch movie: \(error.localizedDescription)")
+        
+        DispatchQueue.main.async {
+            LoadingIndicatorManager.hide() // Hide spinner
+            AlertPresenterManager.ShowAlertWithConfirmButton(on: self,
+                                                             alertTitle: Constants.Alerts.movieFetchFailedAlertTitle,
+                                                             alertMessage: Constants.Alerts.movieFetchFailedAlertMessage)
+        }
     }
     
     private func updateUI(with movie: MovieDetailsDTO) {

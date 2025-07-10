@@ -78,7 +78,10 @@ struct Constants {
         static let generalLoginAlertTitle = "Login Failed"
         static let generalLoginAlertMessage = "We couldn't log you in. Please check your email and password, and ensure you have an internet connection."
         
-        // MovieViewController - watchlist alerts
+        // MovieViewController
+        static let movieFetchFailedAlertTitle = "Unable to load movie"
+        static let movieFetchFailedAlertMessage = "Something went wrong while loading movie details. Please check your internet connection and try again."
+        
         static let watchlistAddSuccessAlertTitle = "Movie added"
         static func watchlistAddSuccessAlertMessage(_ movieTitle: String) -> String {
             return "The movie - \"\(movieTitle)\" was successfully added to your watchlist."
@@ -92,8 +95,12 @@ struct Constants {
         static let watchlistAddFailedAlertTitle = "Add Failed"
         static let watchlistAddFailedAlertMessage = "We couldn't add this movie to your watchlist. Please try again later."
         
+        // WatchListViewController
         static let watchlistDeleteFailedAlertTitle = "Delete Failed"
         static let watchlistDeleteFailedAlertMessage = "We couldn't remove the movie from your watchlist. Please try again later."
+        
+        static let watchlistFetchFailedAlertTitle = "Unable to load watchlist"
+        static let watchlistFetchFailedAlertMessage = "Something went wrong while loading your watchlist. Please check your internet connection and try again."
         
     }
     

@@ -27,11 +27,13 @@ class WatchListViewController: UIViewController {
         moviesTableView.delegate = self
         firestoreWatchlistManager.readDelegate = self
         firestoreWatchlistManager.deleteDelegate = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        firestoreWatchlistManager.fetchWatchList() // fetch Movies fro, firestore DB
+        LoadingIndicatorManager.show(on: self) // Show loading indicator
+        firestoreWatchlistManager.fetchWatchList() // fetch Movies from firestore DB
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -80,12 +82,20 @@ extension WatchListViewController: FirestoreWatchListReadDelegate {
     func didFetchWatchlistSuccessfully(_ movies: [MovieDetailsDTO]) {
         self.movies = movies
         DispatchQueue.main.async {
+            LoadingIndicatorManager.hide()
             self.moviesTableView.reloadData() // Updating moviesTableView
         }
     }
     
     func didFailToFetchWatchlist(error: any Error) {
         print("Failed to fetch watchlist: \(error.localizedDescription)")
+        DispatchQueue.main.async {
+            LoadingIndicatorManager.hide()
+            AlertPresenterManager.ShowAlertWithConfirmButton(on: self,
+                                                             alertTitle: Constants.Alerts.watchlistFetchFailedAlertTitle,
+                                                             alertMessage: Constants.Alerts.watchlistFetchFailedAlertMessage)
+        }
+        
     }
 }
 
