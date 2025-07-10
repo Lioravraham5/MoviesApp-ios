@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VnU-Qx-hqh">
-                                <rect key="frame" x="86.666666666666686" y="650" width="220" height="40"/>
+                                <rect key="frame" x="86.666666666666686" y="578" width="220" height="40"/>
                                 <color key="backgroundColor" name="MovieRed"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="0B2-Np-UTD">
@@ -39,9 +39,9 @@
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie_mood_logo" translatesAutoresizingMaskIntoConstraints="NO" id="Zbs-My-BVk">
-                                <rect key="frame" x="46.666666666666657" y="220" width="300" height="300"/>
+                                <rect key="frame" x="46.666666666666657" y="220" width="300" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="aeN-G9-is5">
+                                    <constraint firstAttribute="height" constant="100" id="aeN-G9-is5">
                                         <variation key="heightClass=compact-widthClass=compact" constant="300"/>
                                     </constraint>
                                     <constraint firstAttribute="width" constant="300" id="mO5-bw-7lg">
@@ -50,7 +50,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wdk-Fx-SFQ">
-                                <rect key="frame" x="86.666666666666686" y="594" width="220" height="40"/>
+                                <rect key="frame" x="86.666666666666686" y="522" width="220" height="40"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="220" id="McT-4I-m5s">
@@ -76,7 +76,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="VnU-Qx-hqh" secondAttribute="bottom" constant="128" id="0Qu-JX-SgN">
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="VnU-Qx-hqh" secondAttribute="bottom" constant="200" id="0Qu-JX-SgN">
                                 <variation key="heightClass=compact-widthClass=compact" constant="16"/>
                             </constraint>
                             <constraint firstAttribute="trailing" secondItem="mp2-Rt-cua" secondAttribute="trailing" id="1gE-C8-j51"/>
@@ -118,8 +118,19 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movies_background" translatesAutoresizingMaskIntoConstraints="NO" id="eTh-9V-jZ7">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie_mood_logo_fix_size" translatesAutoresizingMaskIntoConstraints="NO" id="MSb-F2-S6v">
+                                <rect key="frame" x="71.666666666666686" y="253" width="250" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="XlV-JM-cxn">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="200"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="100" id="hgW-UJ-bOO">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="75"/>
+                                    </constraint>
+                                </constraints>
+                            </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="lior@gmail.com" borderStyle="roundedRect" placeholder="Enter your email.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zd4-fi-fdI" userLabel="EmailTextField">
-                                <rect key="frame" x="70" y="353" width="253" height="45"/>
+                                <rect key="frame" x="70" y="417" width="253" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="pH8-3Z-YGt">
                                         <variation key="heightClass=compact-widthClass=compact" constant="45"/>
@@ -130,7 +141,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="abc123" borderStyle="roundedRect" placeholder="Enter your password.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lNc-ei-syh" userLabel="PasswordTextField">
-                                <rect key="frame" x="70" y="414" width="253" height="45"/>
+                                <rect key="frame" x="70" y="478" width="253" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="lcj-NM-tIm">
                                         <variation key="heightClass=compact-widthClass=compact" constant="45"/>
@@ -141,7 +152,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnt-1F-iz6">
-                                <rect key="frame" x="121.66666666666669" y="491" width="150" height="40"/>
+                                <rect key="frame" x="121.66666666666669" y="555" width="150" height="40"/>
                                 <color key="backgroundColor" name="MovieRed"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="NEr-Lr-meL">
@@ -172,13 +183,18 @@
                             <constraint firstItem="hnt-1F-iz6" firstAttribute="top" secondItem="lNc-ei-syh" secondAttribute="bottom" constant="32" id="GNC-v5-l2k">
                                 <variation key="heightClass=compact-widthClass=compact" constant="32"/>
                             </constraint>
+                            <constraint firstItem="MSb-F2-S6v" firstAttribute="top" secondItem="E7n-YM-Zpr" secondAttribute="top" constant="150" id="Qwd-oo-am3">
+                                <variation key="heightClass=compact-widthClass=compact" constant="16"/>
+                            </constraint>
                             <constraint firstItem="eTh-9V-jZ7" firstAttribute="top" secondItem="I95-Uq-kwW" secondAttribute="top" id="TQJ-OR-c6w"/>
                             <constraint firstItem="zd4-fi-fdI" firstAttribute="leading" secondItem="E7n-YM-Zpr" secondAttribute="leading" constant="70" id="bbl-Uf-QfG">
                                 <variation key="heightClass=compact-widthClass=compact" constant="180"/>
                             </constraint>
-                            <constraint firstItem="zd4-fi-fdI" firstAttribute="top" secondItem="E7n-YM-Zpr" secondAttribute="top" constant="250" id="fv1-pD-ucg">
-                                <variation key="heightClass=compact-widthClass=compact" constant="120"/>
+                            <constraint firstItem="MSb-F2-S6v" firstAttribute="centerX" secondItem="I95-Uq-kwW" secondAttribute="centerX" id="dLd-zF-Ldi"/>
+                            <constraint firstItem="zd4-fi-fdI" firstAttribute="top" secondItem="MSb-F2-S6v" secondAttribute="bottom" constant="64" id="fv1-pD-ucg">
+                                <variation key="heightClass=compact-widthClass=compact" constant="32"/>
                             </constraint>
+                            <constraint firstItem="MSb-F2-S6v" firstAttribute="centerX" secondItem="I95-Uq-kwW" secondAttribute="centerX" id="hGI-aU-8tM"/>
                             <constraint firstAttribute="trailing" secondItem="eTh-9V-jZ7" secondAttribute="trailing" id="rea-db-VxG"/>
                             <constraint firstItem="eTh-9V-jZ7" firstAttribute="leading" secondItem="I95-Uq-kwW" secondAttribute="leading" id="sAQ-tf-VL8"/>
                             <constraint firstItem="E7n-YM-Zpr" firstAttribute="trailing" secondItem="zd4-fi-fdI" secondAttribute="trailing" constant="70" id="wps-lh-g7f">
@@ -214,7 +230,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="lior@gmail.com" borderStyle="roundedRect" placeholder="Enter you email.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="efd-sD-EVe" userLabel="EmailTextField">
-                                <rect key="frame" x="70" y="353" width="253" height="45"/>
+                                <rect key="frame" x="70" y="417" width="253" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="Lr4-tQ-lca">
                                         <variation key="heightClass=compact-widthClass=compact" constant="45"/>
@@ -225,7 +241,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="abc123" borderStyle="roundedRect" placeholder="Enter your password.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HZf-GI-fKh" userLabel="PasswordTextField">
-                                <rect key="frame" x="70" y="414" width="253" height="45"/>
+                                <rect key="frame" x="70" y="478" width="253" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="pHu-nP-DIL">
                                         <variation key="heightClass=compact-widthClass=compact" constant="45"/>
@@ -236,7 +252,7 @@
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dQH-H5-dlY">
-                                <rect key="frame" x="121.66666666666669" y="491" width="150" height="40"/>
+                                <rect key="frame" x="121.66666666666669" y="555" width="150" height="40"/>
                                 <color key="backgroundColor" name="MovieRed"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="9iV-IJ-uv4"/>
@@ -251,6 +267,17 @@
                                     <action selector="LogInButtonPressed:" destination="8ig-u3-V2n" eventType="touchUpInside" id="qaC-xO-zf9"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="movie_mood_logo_fix_size" translatesAutoresizingMaskIntoConstraints="NO" id="srR-hU-eLb">
+                                <rect key="frame" x="71.666666666666686" y="253" width="250" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="2LT-YN-8Cs">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="200"/>
+                                    </constraint>
+                                    <constraint firstAttribute="height" constant="100" id="6kQ-Gp-qsm">
+                                        <variation key="heightClass=compact-widthClass=compact" constant="75"/>
+                                    </constraint>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ama-le-bgJ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -264,8 +291,8 @@
                             <constraint firstItem="ama-le-bgJ" firstAttribute="trailing" secondItem="HZf-GI-fKh" secondAttribute="trailing" constant="70" id="LfR-Zj-var">
                                 <variation key="heightClass=compact-widthClass=compact" constant="180"/>
                             </constraint>
-                            <constraint firstItem="efd-sD-EVe" firstAttribute="top" secondItem="ama-le-bgJ" secondAttribute="top" constant="250" id="MKZ-xQ-d2o">
-                                <variation key="heightClass=compact-widthClass=compact" constant="120"/>
+                            <constraint firstItem="efd-sD-EVe" firstAttribute="top" secondItem="srR-hU-eLb" secondAttribute="bottom" constant="64" id="MKZ-xQ-d2o">
+                                <variation key="heightClass=compact-widthClass=compact" constant="32"/>
                             </constraint>
                             <constraint firstItem="HZf-GI-fKh" firstAttribute="leading" secondItem="ama-le-bgJ" secondAttribute="leading" constant="70" id="OAg-eV-OvS">
                                 <variation key="heightClass=compact-widthClass=compact" constant="180"/>
@@ -273,6 +300,10 @@
                             <constraint firstItem="dQH-H5-dlY" firstAttribute="top" secondItem="HZf-GI-fKh" secondAttribute="bottom" constant="32" id="R5Q-rx-ql7">
                                 <variation key="heightClass=compact-widthClass=compact" constant="32"/>
                             </constraint>
+                            <constraint firstItem="srR-hU-eLb" firstAttribute="top" secondItem="ama-le-bgJ" secondAttribute="top" constant="150" id="RqX-bG-O7j">
+                                <variation key="heightClass=compact-widthClass=compact" constant="16"/>
+                            </constraint>
+                            <constraint firstItem="srR-hU-eLb" firstAttribute="centerX" secondItem="zZs-Yb-Uei" secondAttribute="centerX" id="TLn-xZ-WRC"/>
                             <constraint firstItem="efd-sD-EVe" firstAttribute="leading" secondItem="ama-le-bgJ" secondAttribute="leading" constant="70" id="aC4-TG-hfb">
                                 <variation key="heightClass=compact-widthClass=compact" constant="180"/>
                             </constraint>
@@ -662,6 +693,7 @@
         <image name="film" catalog="system" width="128" height="93"/>
         <image name="house.fill" catalog="system" width="128" height="104"/>
         <image name="movie_mood_logo" width="1080" height="1080"/>
+        <image name="movie_mood_logo_fix_size" width="898" height="342"/>
         <image name="movie_poster" width="1000" height="1482"/>
         <image name="movies_background" width="3000" height="2000"/>
         <namedColor name="FilledRank">
