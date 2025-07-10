@@ -549,14 +549,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xPa-7r-OLM" userLabel="OverviewContent Label">
-                                <rect key="frame" x="16" y="565" width="361" height="126"/>
+                                <rect key="frame" x="16" y="565" width="361" height="108.33333333333337"/>
                                 <string key="text">A young man climbs into the mountains to pick up a meteorite that has fallen there and is killed by something. The "thing" descends to the village and begins to eat the inhabitants one by one, terrorizing the entire island.</string>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bkz-e0-reO" userLabel="AddToWatchList Button">
-                                <rect key="frame" x="100.66666666666669" y="707" width="192" height="38"/>
+                                <rect key="frame" x="100.66666666666669" y="689.33333333333337" width="192" height="38"/>
                                 <color key="backgroundColor" name="MovieRed"/>
                                 <color key="tintColor" name="TitlePrimary"/>
                                 <state key="normal" title="Button"/>

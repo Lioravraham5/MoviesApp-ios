@@ -138,10 +138,14 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="genresIcon" destination="Hee-aj-WPS" id="1gN-Oi-9OE"/>
                 <outlet property="genresLabel" destination="TyO-Cm-S2i" id="WPn-cE-zYS"/>
                 <outlet property="moviePoster" destination="MHB-yx-9pR" id="2KW-Zc-kDf"/>
+                <outlet property="movieRuntimeIcon" destination="5z1-LS-IDj" id="zaa-ir-x4H"/>
                 <outlet property="movieRuntimeLabel" destination="oOv-f5-4Qy" id="mem-fx-JIn"/>
                 <outlet property="movieTitle" destination="WjC-kX-g6t" id="XDV-qd-M9t"/>
+                <outlet property="movieTitleIcon" destination="4MP-ZP-AIw" id="wpP-4z-abZ"/>
+                <outlet property="releaseYearIcon" destination="FOl-dj-eip" id="B3J-nb-4oT"/>
                 <outlet property="releaseYearLabel" destination="5vv-Bq-pBo" id="amb-iT-mqK"/>
                 <outlet property="removeButton" destination="6j2-Gu-vS3" id="wWL-mk-0fN"/>
             </connections>
