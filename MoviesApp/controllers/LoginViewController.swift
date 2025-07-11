@@ -35,9 +35,21 @@ class LogInViewController: UIViewController {
         emailTextField.layer.cornerRadius = emailTextField.frame.height / 2
         emailTextField.clipsToBounds = true
         
+        // Set emailTextField placeholder
+        emailTextField.attributedPlaceholder = NSAttributedString(
+            string: "Enter your email..",
+            attributes: [.foregroundColor: UIColor(named: "textfield_placeholder_color")!]
+        )
+        
         // Rounded passwordTextField
         passwordTextField.layer.cornerRadius = passwordTextField.frame.height / 2
         passwordTextField.clipsToBounds = true
+        
+        // Set passwordTextField placeholder
+        passwordTextField.attributedPlaceholder = NSAttributedString(
+            string: "Enter your password...",
+            attributes: [.foregroundColor: UIColor(named: "textfield_placeholder_color")!]
+        )
     }
     
 

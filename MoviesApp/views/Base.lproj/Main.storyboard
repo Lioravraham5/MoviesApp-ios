@@ -129,7 +129,7 @@
                                     </constraint>
                                 </constraints>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="lior@gmail.com" borderStyle="roundedRect" placeholder="Enter your email.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zd4-fi-fdI" userLabel="EmailTextField">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your email.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zd4-fi-fdI" userLabel="EmailTextField">
                                 <rect key="frame" x="70" y="417" width="253" height="45"/>
                                 <color key="backgroundColor" name="textField_background_color"/>
                                 <constraints>
@@ -137,11 +137,11 @@
                                         <variation key="heightClass=compact-widthClass=compact" constant="45"/>
                                     </constraint>
                                 </constraints>
-                                <color key="textColor" name="red"/>
+                                <color key="textColor" name="MovieRed"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="emailAddress"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="abc123" borderStyle="roundedRect" placeholder="Enter your password.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lNc-ei-syh" userLabel="PasswordTextField">
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter your password.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lNc-ei-syh" userLabel="PasswordTextField">
                                 <rect key="frame" x="70" y="478" width="253" height="45"/>
                                 <color key="backgroundColor" name="textField_background_color"/>
                                 <constraints>
@@ -149,7 +149,7 @@
                                         <variation key="heightClass=compact-widthClass=compact" constant="45"/>
                                     </constraint>
                                 </constraints>
-                                <color key="textColor" name="red"/>
+                                <color key="textColor" name="MovieRed"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                             </textField>
@@ -239,7 +239,7 @@
                                         <variation key="heightClass=compact-widthClass=compact" constant="45"/>
                                     </constraint>
                                 </constraints>
-                                <color key="textColor" name="red"/>
+                                <color key="textColor" name="MovieRed"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                             </textField>
@@ -251,7 +251,7 @@
                                         <variation key="heightClass=compact-widthClass=compact" constant="45"/>
                                     </constraint>
                                 </constraints>
-                                <color key="textColor" name="red"/>
+                                <color key="textColor" name="MovieRed"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" secureTextEntry="YES"/>
                             </textField>
@@ -442,13 +442,13 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Batman vs Superman" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KuV-tR-9D8" userLabel="MovieTitle Label">
-                                <rect key="frame" x="16" y="301" width="361" height="28.666666666666686"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
+                                <rect key="frame" x="16" y="301" width="361" height="35"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
                                 <color key="textColor" name="TitlePrimary"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fMk-94-cyw" customClass="CosmosView" customModule="Cosmos">
-                                <rect key="frame" x="32" y="345.66666666666669" width="329" height="50"/>
+                                <rect key="frame" x="32" y="352" width="329" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="sLm-qf-HwU">
                                         <variation key="heightClass=compact-widthClass=compact" constant="45"/>
@@ -484,7 +484,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="YA8-I2-5SU" userLabel="Details StackView">
-                                <rect key="frame" x="8" y="411.66666666666669" width="377" height="95"/>
+                                <rect key="frame" x="8" y="418" width="377" height="95"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FuI-os-7ZG" userLabel="Date StackView">
                                         <rect key="frame" x="0.0" y="0.0" width="377" height="21"/>
@@ -543,20 +543,20 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overview" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SG9-2c-Ego" userLabel="OverviewHeadLine Label">
-                                <rect key="frame" x="16" y="530.66666666666663" width="361" height="26.333333333333371"/>
+                                <rect key="frame" x="16" y="537" width="361" height="26.333333333333371"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="8" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xPa-7r-OLM" userLabel="OverviewContent Label">
-                                <rect key="frame" x="16" y="565" width="361" height="108.33333333333337"/>
+                                <rect key="frame" x="16" y="571.33333333333337" width="361" height="108.33333333333337"/>
                                 <string key="text">A young man climbs into the mountains to pick up a meteorite that has fallen there and is killed by something. The "thing" descends to the village and begins to eat the inhabitants one by one, terrorizing the entire island.</string>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bkz-e0-reO" userLabel="AddToWatchList Button">
-                                <rect key="frame" x="100.66666666666669" y="689.33333333333337" width="192" height="38"/>
+                                <rect key="frame" x="100.66666666666669" y="695.66666666666663" width="192" height="38"/>
                                 <color key="backgroundColor" name="MovieRed"/>
                                 <color key="tintColor" name="TitlePrimary"/>
                                 <state key="normal" title="Button"/>
@@ -686,7 +686,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="498-bw-0KY"/>
+        <segue reference="1aI-gL-6VJ"/>
         <segue reference="5da-kY-oTV"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -715,7 +715,7 @@
             <color red="0.54509803921568623" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="textField_background_color">
-            <color red="0.99999994039535522" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.99607843137254903" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="top_and_bottom_bar_buttons_color">
             <color red="0.17254901960784313" green="0.32549019607843138" blue="0.39215686274509803" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
