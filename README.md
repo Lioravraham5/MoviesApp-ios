@@ -52,8 +52,7 @@ Movie Mood is a sleek and intuitive iOS application that helps users discover, e
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
 ## 👩‍💻 Developed By
-**Lior Avraham**
-iOS Developer · Passionate about clean code, cinematic design, and building amazing user experiences
+**Lior Avraham** - iOS Developer · Passionate about clean code, cinematic design, and building amazing user experiences
 
 ## 🙏 Acknowledgments
 - [TMDB - The Movie Database](https://www.themoviedb.org/documentation/api) for the open movie API
