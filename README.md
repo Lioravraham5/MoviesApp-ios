@@ -2,6 +2,8 @@
 
 Movie Mood is a sleek and intuitive iOS application that helps users discover, explore, and track their favorite movies. Powered by the [TMDB API](https://www.themoviedb.org/documentation/api), the app provides categorized movie browsing, detailed movie information, and personal watchlist management — all wrapped in a beautiful user experience with light and dark mode support.
 
+https://github.com/user-attachments/assets/b63b5a2d-6d11-4411-9da9-8baf6eb44886
+
 ### Light Mode:
 https://github.com/user-attachments/assets/01e4ca91-405d-4c92-a060-d804f101a71c
 
